@@ -19,8 +19,12 @@ int main()
 {
     std::function<int (int)> i = [](int x) { return id(x); };
     std::function<int (int)> f = [](int x) { return x * x; };
+
     auto fid = compose(f, i);
     auto idf = compose(i, f);
-    assert(fid(4) == idf(4));
+
+    assert(f(4) == fid(4));
+    assert(f(4) == idf(4));
+
     return 0;
 }
