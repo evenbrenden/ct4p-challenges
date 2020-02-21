@@ -1,1 +1,2 @@
-chapter1: chapter1.cpp ; clang++ chapter1.cpp
+chapter1:; clang++ --std=c++17 chapter1.cpp
+clean:; rm a.out
