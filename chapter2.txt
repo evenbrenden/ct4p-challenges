@@ -1,0 +1,4 @@
+5. f x = True
+   f x = False
+   f x = x
+   f x = not x
