@@ -4,3 +4,11 @@ Consider to terminal objects A and B, with morphisms f and g between them, respe
 
 Per the defintion of a terminal object, f and g are unique. Also, both ids are unique per the definition of an id. So all morphisms are identical and unique. Hence A and B are unique up to unique isomorphism.
 
+2.
+
+A poset/partially ordered set is one where morphisms are the <= relation between the objects in the set. There need not be a realtion between all sets. For objects A and B and their product C in such a set, there are morphisms p1 : C -> A and q1 : C -> B, so C <= A and C <= B. For any other (potentially existing) object D <= A and D <= B, there is a morphism D -> C.
+
+Let an object D have morphisms p2 : D -> A and q2 : D -> B. Then there exists an m : D -> C and since there is at most one morphism between any pair of objects in a poset (unique relation), m factorizes p1 and q1 with m . p1 = p2 and m . q1 = q2. Therefore, C can be a product of A and B.
+
+Now let's say that we have no morphism D -> C. Then there can be no n : C -> D (and morphisms p1 = p2 . n and q1 = q2 . n) since there is at most one morphism between two objects and we already stated that if D exists, then we have D -> C. Therefore, we need m : D -> C for C to be a product of A and B.
+
