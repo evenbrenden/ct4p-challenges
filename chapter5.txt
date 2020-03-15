@@ -1,1 +1,6 @@
-1. Consider to terminal objects a and b, with morphisms f and g between them, respectively, and where f is the inverse of g and vica versa. f . g must be the id for a and g . f must be the id for b. Both ids are unique per the definition of an id. Hence a and b are isomorphic. By the definition of a terminal object, f and g must also be unique. Hence this is the only isomorphism for a and b, and so they are unique up to unique isomorphism.
+1.
+
+Consider to terminal objects A and B, with morphisms f and g between them, respectively. f . g  goes from A -> A and must therefore be the id for A, and g . f goes from B -> B and must therefore be the id for B. Every one part of A corresponds to some part of B in a one-to-one mapping, so they are isomorphic.
+
+Per the defintion of a terminal object, f and g are unique. Also, both ids are unique per the definition of an id. So all morphisms are identical and unique. Hence A and B are unique up to unique isomorphism.
+
