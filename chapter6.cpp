@@ -1,3 +1,5 @@
+// 2-4
+
 class Shape {
 public:
     virtual float area() = 0;
@@ -48,6 +50,8 @@ public:
     };
     float d;
 };
+
+// main
 
 int main()
 {
