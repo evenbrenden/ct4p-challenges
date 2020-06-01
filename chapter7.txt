@@ -1,10 +1,16 @@
-1. No, it breaks identity. Proof by counterexample:
+1. No, it breaks identity.
+
+    Proof by counterexample:
 
     fmap id (Just 1)
     = Nothing
     != id (Just 1)
 
-2. Prove the functor laws for Reader (fmap f g = f . g).
+2. Prove the functor laws for Reader.
+
+    Definition:
+
+    fmap f g = f . g
 
     Preserves identity (fmap id g = id):
 
@@ -21,4 +27,38 @@
     = f . (fmap g h)
     = fmap f (fmap g h)
     = (fmap f) . (fmap g) $ h
+
+4. Prove the functor laws for List.
+
+    Definition:
+
+    fmap _ Nil = Nil
+    fmap f (Cons x t) = Cons (f x) (fmap f t)
+
+    Preserves identity:
+
+    fmap id Nil
+    = Nil
+    = id Nil
+
+    fmap id (Cons x t)
+    = Cons (id x) (fmap id t)
+    = Cons (x) (t) -- By induction
+    = Cons (x t)
+    = id (Cons x t)
+
+    Preserves composition:
+
+    fmap (f . g) Nil
+    = Nil
+    = fmap g Nil
+    = fmap f (fmap g Nil)
+    = fmap f Nil . fmap g Nil
+
+    fmap (f . g) (Cons x t)
+    = Cons ((f . g) x) (fmap (f . g) t)
+    = Cons ((f . g) x) (fmap f . fmap g $ t) -- By induction
+    = fmap f (Cons (g x) (fmap g t)) -- By definition of fmap
+    = fmap f (fmap g (Cons x t)) -- By definition of fmap
+    = fmap f (Cons x t) . fmap g (Cons x t)
 
