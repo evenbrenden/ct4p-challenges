@@ -1,0 +1,98 @@
+1.  data Pair a b = Pair a b
+
+    instance Bifunctor Pair where
+      bimap f g (Pair x y) = Pair (f x) (g y)
+
+    Fixing one of the parameters and proves functoriality, which proves it for either parameter, which proves it is a bifunctor:
+
+    Identity:
+    fmap id (Pair a) = Pair (id a) = Pair a = id (Pair a)
+
+    Composition:
+    fmap (f . g) (Pair a) = Pair (f . g $ a) = fmap f (Pair g a) = fmap f . fmap g $ Pair a
+
+2.  type Maybe' a = Either (Const () a) (Identity a)
+    data Either a b = Left a | Right b
+    data Identity a = Identity a
+    data Const a = Const () a
+
+    type Maybe a = Just a | Nothing
+    data Just a = Just a
+    data Nothing = Nothing
+
+    (data Const a b = Const)
+
+    Maybe' a = Either (Const () a) (Identity a)
+             = Either (Const () a) (Just a)
+             = Left (Const () a) | Right (Just a)
+             = Left Nothing | Right (Just a)
+             = Idenity Nothing | Identity (Just a)
+             = Nothing | Just a
+
+3.  data PreList a b = Nil | Cons a b
+
+    instance Bifunctor PreList where
+      bimap f g Nil = Nil
+      bimap f g (Cons a b) = Cons (f a) (g b)
+
+    Fixing one of the parameters and proves functoriality, which proves it for either parameter, which proves it is a bifunctor:
+
+    Identity:
+    fmap id Nil = Nil = id Nil
+    fmap id (Cons a) = Cons (id a) = Cons a = id (Cons a)
+
+    Composition:
+    fmap (f . g) Nil = Nil = fmap g Nil = fmap f (fmap g Nil) = fmap f Nil . fmap g Nil
+    fmap (f . g) (Cons a) = Cons (f . g $ a) = fmap f (Cons g a) = fmap f . fmap g $ Cons a
+
+4.  data K2 c a b = K2 c
+
+    instance Bifunctor K2 where
+      bimap f g (K2 c) = K2 c
+
+    Fixing a:
+    fmap f (K2 c) = K2 c = id $ K2 c
+    fmap (f . g) (K2 c) = K2 c = fmap f $ K2 c = fmap f . fmap g $ K2 c
+    (Like Const.)
+
+    Fixing b:
+    fmap f (K2 c) = K2 c = id $ K2 c
+    fmap (f . g) (K2 c) = K2 c = fmap f $ K2 c = fmap f . fmap g $ K2 c
+    (Like Const.)
+
+
+    data Fst a b = Fst a
+
+    instance Bifunctor Fst where
+      bimap f g (Fst a) = Fst $ f a
+
+    Fixing a:
+    fmap f (Fst a) = Fst a = id $ Fst a
+    fmap (f . g) (Fst a) = Fst a = fmap f $ Fst a = fmap f . fmap g $ Fst a
+    (Like Const.)
+
+    Fixing b:
+    fmap id (Fst a) = Fst (id a) = Fst a = id $ Fst a
+    fmap (f . g) (Fst a) = Fst (f . g $ a) = fmap f $ Fst (g a) = fmap f . fmap g $ Fst a
+    (Like Identity.)
+
+
+    data Snd a b = Snd b
+
+    instance Bifunctor Snd where
+      bimap f g (Snd b) = Snd $ g b
+
+    Fixing a:
+    fmap id (Snd b) = Snd (id b) = Snd b = id $ Snd b
+    fmap (f . g) (Snd b) = Snd (f . g $ b) = fmap f $ Snd (g b) = fmap f . fmap g $ Snd b
+    (Like Identity.)
+
+    Fixing b:
+    fmap f (Snd b) = Snd b = id $ Snd b
+    fmap (f . g) (Snd b) = Snd b = fmap f $ Snd b = fmap f . fmap g $ Snd b
+    (Like Const.)
+
+5. SKIPPED
+
+6. SKIPPED
+
