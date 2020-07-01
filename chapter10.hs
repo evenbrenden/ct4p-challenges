@@ -92,7 +92,7 @@ unwrapOpp (Opp f) x = f x
  ------------------
 
 -- Helpers
-predToStr :: Opp Bool b -> Opp String b
+predToStr :: Opp Bool a -> Opp String a
 predToStr (Opp f) = Opp (\x -> if f x then "T" else "F")
 
 f1 :: Int -> Bool
