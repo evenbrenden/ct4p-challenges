@@ -1,4 +1,4 @@
--- 1
+-- 10.6.1
 
 natTrans :: Maybe a -> [a]
 natTrans (Just a) = [a]
@@ -17,7 +17,7 @@ fmap f [a] =
 natTrans (Just (f a)) =
 natTrans (fmap f (Just a))
 
--- 2
+-- 10.6.2
 
 newtype Reader a b = Reader (a -> b)
 
@@ -59,7 +59,7 @@ natTrans3 (Reader g) = fmap g [(), ()]
 
 -- There are infinitely many [(),...,()] lists => infinitely many natural transformations from Reader () to [].
 
--- 3
+-- 10.6.3
 
 natTrans1 :: Reader Bool a -> Maybe a
 natTrans1 (Reader f) = Just (f True)
@@ -72,38 +72,76 @@ natTrans3 _ = Nothing
 
 -- That's all of them.
 
--- 6
+-- 10.6.6
 
 import Data.Functor.Contravariant
 
-newtype Opp r a = Opp (a -> r)
+-- Setup
+
+newtype Opp r a = Opp (a -> r) -- Because Op is taken
 
 instance Contravariant (Opp r) where
-  -- contramap :: (b -> a) -> Opp (a -> r) -> Opp (b -> r)
+    -- contramap :: (b -> a) -> Opp (a -> r) -> Opp (b -> r)
   contramap f (Opp g) = Opp (g . f)
 
-unwrapOp :: (Opp r a) -> a -> r
-unwrapOp (Opp f) x = f x
+unwrapOpp :: (Opp r a) -> a -> r
+unwrapOpp (Opp f) x = f x
 
--- Testing this
+ ------------------
+ -- Test case #1
+ ------------------
 
+-- Helpers
 predToStr :: Opp Bool b -> Opp String b
 predToStr (Opp f) = Opp (\x -> if f x then "T" else "F")
 
 f1 :: Int -> Bool
 f1 x = x > 0
 
-unwrapOp (contramap f . predToStr $ Op (\x -> True)) 1 -- "T"
-unwrapOp (predToStr . contramap f $ Op (\x -> True)) 1 -- "T"
+testOpp1 :: Opp Bool Bool
+testOpp1 = Opp id
 
--- Testing that
+testArg1 :: Int
+testArg1 = 1
 
-anotherNatTrans :: Opp Int a -> Opp Bool a
-anotherNatTrans (Opp f) = Opp (\x -> f x == 0)
+-- Naturality condition
+leftSide1 = contramap f1 . predToStr
+rightSide1 = predToStr . contramap f1
+
+leftSideApplied1 = unwrapOpp (leftSide1 testOpp1) testArg1
+rightSideApplied1 = unwrapOpp (rightSide1 testOpp1) testArg1
+
+-- Test
+result1 = leftSideApplied1 == rightSideApplied1 -- => True
+
+------------------
+-- Test case #2
+------------------
+
+-- Helpers
+predToBool :: Opp Int a -> Opp Bool a
+predToBool (Opp f) = Opp (\x -> f x == 0)
 
 f2 :: String -> Int
 f2 x = 1
 
-unwrapOp (contramap f2 . anotherNatTrans $ Opp (\x -> x - 1)) $ "T" -- True
-unwrapOp (anotherNatTrans . contramap f2 $ Opp (\x -> x - 1)) $ "T" -- True
+testOpp2 :: Opp Int Int
+testOpp2 = Opp (\x -> x - 1)
 
+testArg2 :: String
+testArg2 = "T"
+
+-- Naturality condition
+leftSide2 = contramap f2 . predToBool
+rightSide2 = predToBool . contramap f2
+
+leftSideApplied2 = unwrapOpp (leftSide2 testOpp2) testArg2
+rightSideApplied2 = unwrapOpp (rightSide2 testOpp2) testArg2
+
+-- Test
+result2 = leftSideApplied2 == rightSideApplied2 -- => True
+
+main = do
+  print result1
+  print result2
+  return ()
