@@ -23,7 +23,7 @@ circ (Circle r) = 2 * pi * r
 circ (Rect d h) = 2 * pi * (d + h)
 circ (Square d) = 2 * pi * (d + d)
 
--- Challenge 6
+-- Challenge 5
 
 -- Numbers         Types
 -- 2 = 1 + 1       data Bool = True | False

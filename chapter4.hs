@@ -1,3 +1,5 @@
+-- Challenges 1-3
+
 module Main where
 
 data Option a = Some a | Nada deriving Show
