@@ -1,4 +1,4 @@
-// 2-4
+// Challenges 2-4
 
 class Shape {
 public:
@@ -50,8 +50,6 @@ public:
     };
     float d;
 };
-
-// main
 
 int main()
 {

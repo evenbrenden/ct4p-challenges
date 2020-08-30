@@ -1,64 +1,65 @@
-1. No, it breaks identity.
+Challenge 1
 
-    Proof by counterexample:
+No, it breaks identity.
 
-    fmap id (Just 1)
-    = Nothing
-    != id (Just 1)
+Proof by counterexample:
 
-2. Prove the functor laws for Reader.
+fmap id (Just 1)
+= Nothing
+!= id (Just 1)
 
-    Definition:
+Challenge 2
 
-    fmap f g = f . g
+Definition:
 
-    Preserves identity (fmap id g = id):
+fmap f g = f . g
 
-    fmap id g
-    = id . g
-    = g
-    = id g
+Preserves identity (fmap id g = id):
 
-    Preserves composition (fmap (f . g) h = (fmap f) . (fmap g) $ h):
+fmap id g
+= id . g
+= g
+= id g
 
-    fmap (f . g) h
-    = (f . g) . h
-    = f . (g . h)
-    = f . (fmap g h)
-    = fmap f (fmap g h)
-    = (fmap f) . (fmap g) $ h
+Preserves composition (fmap (f . g) h = (fmap f) . (fmap g) $ h):
 
-4. Prove the functor laws for List.
+fmap (f . g) h
+= (f . g) . h
+= f . (g . h)
+= f . (fmap g h)
+= fmap f (fmap g h)
+= (fmap f) . (fmap g) $ h
 
-    Definition:
+Challenge 4
 
-    fmap _ Nil = Nil
-    fmap f (Cons x t) = Cons (f x) (fmap f t)
+Definition:
 
-    Preserves identity:
+fmap _ Nil = Nil
+fmap f (Cons x t) = Cons (f x) (fmap f t)
 
-    fmap id Nil
-    = Nil
-    = id Nil
+Preserves identity:
 
-    fmap id (Cons x t)
-    = Cons (id x) (fmap id t)
-    = Cons (x) (t) -- By induction
-    = Cons (x t)
-    = id (Cons x t)
+fmap id Nil
+= Nil
+= id Nil
 
-    Preserves composition:
+fmap id (Cons x t)
+= Cons (id x) (fmap id t)
+= Cons (x) (t) -- By induction
+= Cons (x t)
+= id (Cons x t)
 
-    fmap (f . g) Nil
-    = Nil
-    = fmap g Nil
-    = fmap f (fmap g Nil)
-    = fmap f Nil . fmap g Nil
+Preserves composition:
 
-    fmap (f . g) (Cons x t)
-    = Cons ((f . g) x) (fmap (f . g) t)
-    = Cons ((f . g) x) (fmap f . fmap g $ t) -- By induction
-    = fmap f (Cons (g x) (fmap g t)) -- By definition of fmap
-    = fmap f (fmap g (Cons x t)) -- By definition of fmap
-    = fmap f (Cons x t) . fmap g (Cons x t)
+fmap (f . g) Nil
+= Nil
+= fmap g Nil
+= fmap f (fmap g Nil)
+= fmap f Nil . fmap g Nil
 
+fmap (f . g) (Cons x t)
+= Cons ((f . g) x) (fmap (f . g) t)
+= Cons ((f . g) x) (fmap f . fmap g $ t) -- By induction
+= fmap f (Cons (g x) (fmap g t)) -- By definition of fmap
+= fmap f (fmap g (Cons x t)) -- By definition of fmap
+= fmap f (Cons x t) . fmap g (Cons x t)

@@ -2,7 +2,7 @@
 
 enum class Which { Left, Right };
 
-// (Pretty much a 2-tuple with generic types and dynamic type checking)
+// Pretty much a 2-tuple with generic types and dynamic type checking
 template <class A, class B>
 class Either {
 public:
@@ -50,13 +50,13 @@ int m(Either<int, bool> const & e)
 
 int main()
 {
-    // 5.4
+    // Challenge 4
     {
         Either<int, bool> leftie = Either<int, bool>(4);
         Either<int, bool> rightie = Either<int, bool>(true);
     }
 
-    // 5.5
+    // Challenge 5
     {
         int i_input_int = 4;
         Either<int ,bool> i_input_either = Either<int, bool>(i_input_int);
@@ -68,7 +68,7 @@ int main()
 
     }
 
-    // 5.6
+    // Challenge 6
     // We have alrady shown the Either is better by showing that left()/right()
     // can be factorized by m() through i()/j(). To show that the opposite is
     // not true, imagine a function n: Either n(int). n cannot take a bool, so
@@ -76,14 +76,14 @@ int main()
     // (bar coercion). Therefore, int is not better than Either. This is
     // an argument similar to what was done with Int for products in the book.
 
-    // 5.7
+    // Challenge 7
     // Using that i(), we can not factorize m(MAX_INT) and m(MAX_INT - 1), so
     // that is not better either (cheap pun but i need a comic relief rn).
 
     return 0;
 }
 
-// 5.8
+// Challenge 8
 template <class A, class B>
 class InferiorEither {
 public:
@@ -117,4 +117,3 @@ private:
 // bools you want to use, i.e. there are multiple morphisms from it to Either.
 // This is an argument similar to what was done with (Int, Int, Bool) for
 // products in the book.
-

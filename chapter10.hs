@@ -1,4 +1,4 @@
--- 10.6.1
+-- Challenge 1
 
 natTrans :: Maybe a -> [a]
 natTrans (Just a) = [a]
@@ -17,7 +17,7 @@ fmap f [a] =
 natTrans (Just (f a)) =
 natTrans (fmap f (Just a))
 
--- 10.6.2
+-- Challenge 2
 
 newtype Reader a b = Reader (a -> b)
 
@@ -59,7 +59,7 @@ natTrans3 (Reader g) = fmap g [(), ()]
 
 -- There are infinitely many [(),...,()] lists => infinitely many natural transformations from Reader () to [].
 
--- 10.6.3
+-- Challenge 3
 
 natTrans1 :: Reader Bool a -> Maybe a
 natTrans1 (Reader f) = Just (f True)
@@ -72,7 +72,7 @@ natTrans3 _ = Nothing
 
 -- That's all of them.
 
--- 10.6.6
+-- Challenge 6
 
 import Data.Functor.Contravariant
 
@@ -87,9 +87,9 @@ instance Contravariant (Opp r) where
 unwrapOpp :: (Opp r a) -> a -> r
 unwrapOpp (Opp f) x = f x
 
- ------------------
- -- Test case #1
- ------------------
+------------------
+-- Test case #1
+------------------
 
 -- Helpers
 predToStr :: Opp Bool a -> Opp String a
