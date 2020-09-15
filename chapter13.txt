@@ -36,7 +36,8 @@ n = (f u) * n
 
 =>
 
-(f u) is the left unit for all n in N.
+(f u) is the left unit for all n in N. Because g is the inverse of f, it is injective
+(one-to-one), and therefore these equations are valid for all ms in M and ns in N.
 
 Challenge 3
 
