@@ -13,6 +13,9 @@ g (f m) = m
 g (f n) = n
 f u = v
 g v = u
+
+=>
+
 m * (g v) = m * u = m
 n * (f u) = n * v = n
 
