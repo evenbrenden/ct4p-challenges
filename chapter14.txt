@@ -1,0 +1,28 @@
+oChallenge 2
+
+For the Maybe functor to be representable, we need:
+
+alpha :: (a -> x) -> Maybe x
+beta :: Maybe a -> (a -> x)
+
+As with the List functor, it's impossible to produce an x from the empty element:
+
+beta None = undefined
+
+Challenge 3
+
+alpha :: (a -> x) -> Reader a x
+alpha f = Reader f
+
+beta :: Reader a x -> (a -> x)
+beta :: (Reader f) = f
+
+Yes.
+
+Challenge 5
+
+SKIPPED
+
+Challenge 6
+
+SKIPPED
