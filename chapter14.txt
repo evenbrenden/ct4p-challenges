@@ -1,4 +1,4 @@
-oChallenge 2
+Challenge 2
 
 For the Maybe functor to be representable, we need:
 
