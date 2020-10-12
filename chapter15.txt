@@ -8,6 +8,15 @@ fmap id alpha =
 alpha
 => psi . phi = id
 
+phi . psi $ fa =
+phi (psi fa) =
+phi ((\fa \h -> fmap h fa) fa) =
+phi (\h -> fmap h fa) =
+(\h -> fmap h fa) id =
+fmap id fa =
+fa
+=> phi . psi = id
+
 Challenge 2
 
 In this case, C(a, a) consists of a single point id :: a -> a, and so does Fa. By Yoneda's lemma, there is only a single natural transformation between C(a, -) and F.
