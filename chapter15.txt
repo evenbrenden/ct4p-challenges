@@ -19,18 +19,38 @@ fa
 
 Challenge 2
 
-In this case, C(a, a) consists of a single point id :: a -> a, and so does Fa. By Yoneda's lemma, there is only a single natural transformation between C(a, -) and F.
+For example:
+
+a :: () -- No morphisms other than identity morphisms
+a = ()
+
+fa1 :: Maybe ()
+fa1 = Just ()
+
+fa2 :: Maybe ()
+fa2 = Nothing
+
+alpha1 :: (() -> x) -> Maybe x
+alpha1 ux = Just ux
+
+alpha2 :: (() -> x) -> Maybe x
+alpha2 ux =  Nothing
+
+There are as many natural transformations from Reader () x to Maybe () as there are elements of Maybe () (that is, two).
 
 Challenge 3
 
 fa :: [()]
-fa = [(), ()] -- For example
+fa = [(), ()] -- For example (information = 2)
 
 alpha :: (() -> b) -> [b]
 alpha h = fmap h fa
 
-h :: () -> Bool
-h _ = True
+anotherRepresentation :: (() -> b) -> [b]
+anotherRepresentation = alpha -- [f (), f ()] (information = 2)
 
-anotherRepresentation :: [Bool]
-anotherRepresentation = alpha h -- [True, True]
+h :: () -> Int
+h _ = 40
+
+evaluatedRepresentation :: [Int]
+evaluatedRepresentation = alpha h -- [40, 40] (information = 2)
