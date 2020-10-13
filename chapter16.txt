@@ -1,0 +1,34 @@
+Challenge 1
+
+Co-Yoneda embedding can be represented as:
+
+(x -> a) -> (x -> b) ≅ a -> b
+
+fromY :: (x -> a) -> x -> b
+fromY f x = atob (f x)
+
+fromY :: a -> b
+fromY id = atob
+
+Challenge 2
+
+SKIPPED
+
+Challenge 3
+
+Let C be a monoid category with a single object a. The functor F :: a -> C(a, a) maps a in C to F(C, Set) and contains all morphisms C(a, a). The natural transformations that correspond to C(a, a) are Nat(C(a, a), C(a, a)) ≅ C(a, a). These natural transformations are identity transformations that map F(C, Set) to itself (see drawing).
+atoa :: a -> a
+atoa = id
+
+fromY :: (a -> x) -> a -> x
+fromY f a = f (id a) = f a
+
+So fromY is just a transformation between Reader a x and Reader a x (that is, the very same functor).
+
+Challenge 4
+
+SKIPPED
+
+Challenge 5
+
+SKIPPED
