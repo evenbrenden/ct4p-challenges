@@ -13,14 +13,15 @@ instance Representable Pair where
   index (Pair x _) True = x
   index (Pair _ y) False = y
 
-and' :: Bool -> Bool
-and' = (&&) True
+toBeMemoized :: Bool -> Int
+toBeMemoized True = 40
+toBeMemoized False = 21
 
-memo :: Pair Bool
-memo = tabulate and'
+memo :: Pair Int
+memo = tabulate toBeMemoized
 
-memos :: (Bool, Bool)
-memos = fmap (index memo) (False, True)
+memos :: (Int, Int)
+memos = (index memo False, index memo True)
 
 main = do
   putStrLn $ show memos
