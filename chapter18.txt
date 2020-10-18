@@ -1,0 +1,51 @@
+Challenge 1
+
+SKIPPED
+
+Challenge 2
+
+If L :: D -> C is the left adjoint of R :: C -> D and vica versa, we have an isomorphism of hom-sets in C and D:
+
+C(Ld, c) ≅ D(d, Rc)
+
+This holds for all c and d. Substitute d = Rc:
+
+C((L . R)c, c) ≅ D(Rc, Rc)
+
+We know that the right hand side must contain at least on morphism, the identity. The natural transformation between these hom-sets will map the identity morphism to an element of C((L . R)c, c), or, inserting the identity functor I, a morphism in:
+
+C((L . R)c, Ic) = ε
+
+This is a family of morphisms parametrized by c. They form a natural transformation between the functor I and the functor L . R. This is exactly our counit ε.
+
+Challenge 4
+
+The first definition: C(Ld, c) ≅ D(d, Rc) => existence of η and ε (shown in book + challenge 2)
+
+(Half of) the second definition: Existence of η and ε => existence of φ :: C(Ld, c) -> D(d, Rc) (shown in book)
+
+The missing piece is of the second definiton is: Existence of η and ε => existence of ψ :: D(d, Rc) -> C(Ld, c)
+
+Pick an arbitrary morphism g in D(d, Rc). We want to define a ψ that, acting on g, produces a morphism in C(Ld, c).
+
+There isn’t really much choice. One thing we can try is to lift g using L. That will produce a morphism Lg from Ld to L(Rc) - a morphism that's an element of C(Ld, (L . R)c).
+
+What we need for a component of ψ, is a morphism from Ld to c. That’s not a problem, since we can use a component of εc to get from Ld to (L . R)c. We get:
+
+ψg = Rg . εc
+
+Challenge 4
+
+SKIPPED
+
+Challenge 5
+
+SKIPPED
+
+Challenge 6
+
+product2Function :: ((z, a) -> b) -> (z -> (a -> b)
+product2Function za_b = \z -> (\a -> za_b (z, a))
+
+function2Product :: (z -> (a -> b)) -> ((z, a) -> b)
+function2Product z_ab = \za -> (z_ab (fst za) (snd za))
