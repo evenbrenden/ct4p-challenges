@@ -30,17 +30,23 @@ Then on to prove Ff * ψgx = ψgy * Gf. Right hand side:
 
   ψgy * Gf
   ψgy * Gf Gx    // Precompose with Gx (the trick)
-= ψgy * Gy       // Apply Gx
-= ψgy * D(y, Rc) // Target of Gy
-= C(Ly, c)       // Definition of ψgy
+= ψgy * Gy       // "Apply" Gx to Gf
+= ψgy * D(y, Rc) // Target of Gy is D(y, Rc)
+= C(Ly, c)       // "Apply" D(y, Rc) to ψgy
 
 Left hand side:
 
   Ff * ψgx
   Ff * ψgx Gx    // Precompose with Gx (the trick)
-= Ff * Fx        // Apply Gx
-= Fy             // Apply Fx
-= C(Ly, c)       // Target of Fy
+= Ff * Fx        // "Apply" Gx to ψgx
+= Fy             // "Apply" Fx to Ff
+= C(Ly, c)       // Target of Fy is C(Ly, c)
+
+All together:
+
+Ff * ψgx Gx = C(Ly, c) = ψgy * Gf Gx   // Left versus right hand side
+Ff * ψgx Gf Gx Gx-1 = ψgy * Gf Gx Gx-1 // Precompose with Gx-1
+ψgy * Gf = Ff * ψgx Gf                 // Gf Gf-1 is identity
 
 
 Challenge 2
