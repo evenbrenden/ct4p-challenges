@@ -2,15 +2,17 @@ Challenge 2
 
 SKIPPED
 
+
 Challenge 4
 
 SKIPPED
+
 
 Challenge 5
 
 Intuitively, we can always add arrows to the terminal object in the product diagram, which turns the diagram into a pullback. Intuitively, these diagrams are uniquely isomorphic.
 
+
 Challenge 6
 
 Conversely, intuitively, we can always add arrows from the initial object in the coproduct diagram, which turns the diagram into a pullback. Intuitively, these diagrams are uniquely isomorphic.
-

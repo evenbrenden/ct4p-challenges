@@ -17,6 +17,7 @@ fmap f [a] =
 natTrans (Just (f a)) =
 natTrans (fmap f (Just a))
 
+
 -- Challenge 2
 
 newtype Reader a b = Reader (a -> b)
@@ -59,6 +60,7 @@ natTrans3 (Reader g) = fmap g [(), ()]
 
 -- There are infinitely many [(),...,()] lists => infinitely many natural transformations from Reader () to [].
 
+
 -- Challenge 3
 
 natTrans1 :: Reader Bool a -> Maybe a
@@ -71,6 +73,7 @@ natTrans3 :: Reader Bool a -> Maybe a
 natTrans3 _ = Nothing
 
 -- That's all of them.
+
 
 -- Challenge 6
 

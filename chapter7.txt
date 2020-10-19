@@ -8,6 +8,7 @@ fmap id (Just 1)
 = Nothing
 != id (Just 1)
 
+
 Challenge 2
 
 Definition:
@@ -29,6 +30,7 @@ fmap (f . g) h
 = f . (fmap g h)
 = fmap f (fmap g h)
 = (fmap f) . (fmap g) $ h
+
 
 Challenge 4
 

@@ -9,6 +9,7 @@ As with the List functor, it's impossible to produce an x from the empty element
 
 beta None = undefined
 
+
 Challenge 3
 
 alpha :: (a -> x) -> Reader a x
@@ -18,6 +19,7 @@ beta :: Reader a x -> (a -> x)
 beta :: (Reader f) = f
 
 Yes.
+
 
 Challenge 5
 

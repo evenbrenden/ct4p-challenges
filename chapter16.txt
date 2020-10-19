@@ -10,9 +10,11 @@ fromY f x = atob (f x)
 fromY :: a -> b
 fromY id = atob
 
+
 Challenge 2
 
 SKIPPED
+
 
 Challenge 3
 
@@ -24,6 +26,7 @@ fromY :: (a -> x) -> a -> x
 fromY f a = f (id a) = f a
 
 So fromY is just a transformation between Reader a x and Reader a x (that is, the very same functor).
+
 
 Challenge 4
 
@@ -38,6 +41,7 @@ All together:
 b <= a if and only if for all x, a <= x implies that b <= x
 
 Intuitively, this says that if b is less than or equal to a, then all x that are above than a must also be above b.
+
 
 Challenge 5
 

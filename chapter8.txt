@@ -13,6 +13,7 @@ fmap id (Pair a) = Pair (id a) = Pair a = id (Pair a)
 Composition:
 fmap (f . g) (Pair a) = Pair (f . g $ a) = fmap f (Pair g a) = fmap f . fmap g $ Pair a
 
+
 Challenge 2
 
 type Maybe' a = Either (Const () a) (Identity a)
@@ -31,6 +32,7 @@ Maybe' a = Either (Const () a) (Identity a)
          = Idenity Nothing | Identity (Just a)
          = Nothing | Just a
 
+
 Challenge 3
 
 data PreList a b = Nil | Cons a b
@@ -48,6 +50,7 @@ fmap id (Cons a) = Cons (id a) = Cons a = id (Cons a)
 Composition:
 fmap (f . g) Nil = Nil = fmap g Nil = fmap f (fmap g Nil) = fmap f Nil . fmap g Nil
 fmap (f . g) (Cons a) = Cons (f . g $ a) = fmap f (Cons g a) = fmap f . fmap g $ Cons a
+
 
 Challenge 4
 
@@ -97,6 +100,7 @@ Fixing b:
 fmap f (Snd b) = Snd b = id $ Snd b
 fmap (f . g) (Snd b) = Snd b = fmap f $ Snd b = fmap f . fmap g $ Snd b
 (Like Const.)
+
 
 Challenge 6
 

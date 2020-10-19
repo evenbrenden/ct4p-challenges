@@ -1,4 +1,3 @@
-
 -- Challenge 1
 
 iso1 :: Maybe a -> Either a ()
@@ -8,6 +7,7 @@ iso1 Nothing = Right ()
 inv1 :: Either a () -> Maybe a
 inv1 (Left a) = Just a
 inv1 (Right _) = Nothing
+
 
 -- Challenges 2-4
 
@@ -22,6 +22,7 @@ circ :: Shape -> Float
 circ (Circle r) = 2 * pi * r
 circ (Rect d h) = 2 * pi * (d + h)
 circ (Square d) = 2 * pi * (d + d)
+
 
 -- Challenge 5
 

@@ -17,6 +17,7 @@ fmap id fa =
 fa
 => phi . psi = id
 
+
 Challenge 2
 
 For example:
@@ -37,6 +38,7 @@ alpha2 :: (() -> x) -> Maybe x
 alpha2 ux =  Nothing
 
 There are as many natural transformations from Reader () x to Maybe () as there are elements of Maybe () (that is, two).
+
 
 Challenge 3
 
