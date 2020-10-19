@@ -1,6 +1,47 @@
-Challenge 1
+Challenge 1 (pretty much a straight lift from http://danshiebler.com/2018-11-10-category-solutions/)
 
-SKIPPED
+Consider two functors from C to Set:
+
+d -> C(Ld, c)
+d -> D(d, Rc)
+
+ψ is a natural transformation between these two. We want to prove that:
+
+Ff * ψgx = ψgy * Gf
+
+Where:
+
+* ψ is a natural transformation from G to F (conversely, φ is a natural transformation from F to G)
+* gx and gy are components of ψ (not single objects but a function, since we are going between hom-sets)
+* f is a function :: x -> y (not a single object but a function, since we are going between hom-sets)
+* F and G must be functors from C to C and D to D, respectively (in order to compose horizontally with ψ)
+
+Since we are precomposing f with F and G, Ff and Gf must be:
+
+Ff :: C(Lx, c) -> C(Ly, c)
+Gf :: D(x, Rc) -> D(y, Rc)
+
+Which means that ψgx and ψgy must be:
+
+ψgx :: D(x, Rc) -> C(Lx, c)
+ψgy :: D(y, Rc) -> D(Ly, c)
+
+Then on to prove Ff * ψgx = ψgy * Gf. Right hand side:
+
+  ψgy * Gf
+  ψgy * Gf Gx    // Precompose with Gx (the trick)
+= ψgy * Gy       // Apply Gx
+= ψgy * D(y, Rc) // Target of Gy
+= C(Ly, c)       // Definition of ψgy
+
+Left hand side:
+
+  Ff * ψgx
+  Ff * ψgx Gx    // Precompose with Gx (the trick)
+= Ff * Fx        // Apply Gx
+= Fy             // Apply Fx
+= C(Ly, c)       // Target of Fy
+
 
 Challenge 2
 
@@ -18,6 +59,7 @@ C((L * R)c, Ic) = ε
 
 This is a family of morphisms parametrized by c. They form a natural transformation between the functor I and the functor L * R. This is exactly our counit ε.
 
+
 Challenge 3
 
 The first definition: C(Ld, c) ≅ D(d, Rc) => existence of η and ε (shown in book + challenge 2)
@@ -34,13 +76,16 @@ What we need for a component of ψ, is a morphism from Ld to c. That’s not a p
 
 ψg = Rg * εc
 
+
 Challenge 4
 
 SKIPPED
 
+
 Challenge 5
 
 SKIPPED
+
 
 Challenge 6
 
