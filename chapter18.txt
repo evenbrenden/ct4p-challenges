@@ -14,7 +14,7 @@ Where:
 * ψ is a natural transformation from G to F (conversely, φ is a natural transformation from F to G)
 * gx and gy are components of ψ (not single objects but a function, since we are going between hom-sets)
 * f is a function :: x -> y (not a single object but a function, since we are going between hom-sets)
-* F and G must be functors from C to C and D to D, respectively (in order to compose horizontally with ψ)
+* F and G must be endofunctors from C to C and D to D, respectively (in order to compose with ψ)
 
 Since we are precomposing f with F and G, Ff and Gf must be:
 
