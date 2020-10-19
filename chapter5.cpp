@@ -69,7 +69,7 @@ int main()
     }
 
     // Challenge 6
-    // We have alrady shown the Either is better by showing that left()/right()
+    // We have already shown the Either is better by showing that left()/right()
     // can be factorized by m() through i()/j(). To show that the opposite is
     // not true, imagine a function n: Either n(int). n cannot take a bool, so
     // it can not factorize j(). For example, n(rightie.right()) does not work
