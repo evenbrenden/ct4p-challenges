@@ -10,15 +10,15 @@ C(Ld, c) ≅ D(d, Rc)
 
 This holds for all c and d. Substitute d = Rc:
 
-C((L . R)c, c) ≅ D(Rc, Rc)
+C((L * R)c, c) ≅ D(Rc, Rc)
 
-We know that the right hand side must contain at least on morphism, the identity. The natural transformation between these hom-sets will map the identity morphism to an element of C((L . R)c, c), or, inserting the identity functor I, a morphism in:
+We know that the right hand side must contain at least on morphism, the identity. The natural transformation between these hom-sets will map the identity morphism to an element of C((L * R)c, c), or, inserting the identity functor I, a morphism in:
 
-C((L . R)c, Ic) = ε
+C((L * R)c, Ic) = ε
 
-This is a family of morphisms parametrized by c. They form a natural transformation between the functor I and the functor L . R. This is exactly our counit ε.
+This is a family of morphisms parametrized by c. They form a natural transformation between the functor I and the functor L * R. This is exactly our counit ε.
 
-Challenge 4
+Challenge 3
 
 The first definition: C(Ld, c) ≅ D(d, Rc) => existence of η and ε (shown in book + challenge 2)
 
@@ -28,11 +28,11 @@ The missing piece is of the second definiton is: Existence of η and ε => exist
 
 Pick an arbitrary morphism g in D(d, Rc). We want to define a ψ that, acting on g, produces a morphism in C(Ld, c).
 
-There isn’t really much choice. One thing we can try is to lift g using L. That will produce a morphism Lg from Ld to L(Rc) - a morphism that's an element of C(Ld, (L . R)c).
+There isn’t really much choice. One thing we can try is to lift g using L. That will produce a morphism Lg from Ld to L(Rc) - a morphism that's an element of C(Ld, (L * R)c).
 
-What we need for a component of ψ, is a morphism from Ld to c. That’s not a problem, since we can use a component of εc to get from Ld to (L . R)c. We get:
+What we need for a component of ψ, is a morphism from Ld to c. That’s not a problem, since we can use a component of εc to get from Ld to (L * R)c. We get:
 
-ψg = Rg . εc
+ψg = Rg * εc
 
 Challenge 4
 
