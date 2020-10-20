@@ -1,6 +1,19 @@
-Challenges 1-4
+Challenge 2
 
-SKIPPED
+That will not work, since random number generators produce side effects.
+
+
+Challenge 3
+
+That should work, since calling a random number generator with a fixed seed is deterministic.
+
+
+Challenge 4
+
+a) Yes
+b) No
+c) No
+d) No
 
 
 Challenge 5
