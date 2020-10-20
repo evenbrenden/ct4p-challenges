@@ -26,7 +26,12 @@ Which means that ψgx and ψgy must be:
 ψgx :: D(x, Rc) -> C(Lx, c)
 ψgy :: D(y, Rc) -> D(Ly, c)
 
-Then on to prove Ff * ψgx = ψgy * Gf. Right hand side:
+And gx and gy must be:
+
+gx :: x -> Rc
+gy :: y -> Rc
+
+Now we are ready to prove Ff * ψgx = ψgy * Gf. Right hand side:
 
   ψgy * Gf
   ψgy * Gf Gx    // Precompose with Gx (the trick)
