@@ -88,14 +88,34 @@ What we need for a component of ψ, is a morphism from Ld to c. That’s not a p
 ψg = Rg * εc
 
 
-Challenge 4
+Challenges 4 and 5 (also heavily inspired by http://danshiebler.com/2018-11-10-category-solutions/)
 
-SKIPPED
+Let C be a category with an object Either a b, an object c and a morphism m in C(Either a b, c). Let CxC be a product category with an object <a, b>, an object <c, c> and morphisms <i, j>, where i :: a -> c and j :: b -> c. Let Δc :: C -> CxC be the diagonal functor whose action on objects is Δc = <c, c>. Then the Coproduct :: CxC -> C is a functor that maps <a, b> to Either a b, and we want to show that:
 
+(CxC)(<a, b>, Δc) ≅ C(Either a b, c)
 
-Challenge 5
+(See drawing.)
 
-SKIPPED
+The factorizer for Coproduct (as Either) is:
+
+factorizer :: (a -> c) -> (b -> c) -> (Either a b -> c)
+factorizer i j (Left a) = i a
+factorizer i j (Right b) = j b
+
+It produces a morphism m :: Either a b -> c.
+
+But we have chosen CxC as the source category (maybe we could have chosen a different one). If factorizer is going to serve as a natural transformation between CxC and C, we need to pair up the argument functions:
+
+factorizer' :: ((a -> c), (b -> c)) -> (Either a b -> c)
+factorizer' (i, j) (Left a) = i a
+factorizer' (i, j) (Right b) = j b
+
+To get the inverse of this we switch the arguments:
+
+factorizer_inv' :: (Either a b -> c) -> ((a -> c), (b -> c))
+factorizer_inv' eabc = (\a -> eabc (Left a), \b -> eabc (Right b))
+
+Since this is implemented we get naturality in a, b and c for free.
 
 
 Challenge 6
