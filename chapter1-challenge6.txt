@@ -1,0 +1,1 @@
+For every node A, of there is an edge from node A to node B, then there must also be an edge from node A to any node C that has an edge to it from B. Also, there must be an edge from node A to itself.

@@ -1,0 +1,46 @@
+data K2 c a b = K2 c
+
+instance Bifunctor K2 where
+  bimap f g (K2 c) = K2 c
+
+Fixing a:
+fmap f (K2 c) = K2 c = id $ K2 c
+fmap (f . g) (K2 c) = K2 c = fmap f $ K2 c = fmap f . fmap g $ K2 c
+(Like Const.)
+
+Fixing b:
+fmap f (K2 c) = K2 c = id $ K2 c
+fmap (f . g) (K2 c) = K2 c = fmap f $ K2 c = fmap f . fmap g $ K2 c
+(Like Const.)
+
+
+data Fst a b = Fst a
+
+instance Bifunctor Fst where
+  bimap f g (Fst a) = Fst $ f a
+
+Fixing a:
+fmap f (Fst a) = Fst a = id $ Fst a
+fmap (f . g) (Fst a) = Fst a = fmap f $ Fst a = fmap f . fmap g $ Fst a
+(Like Const.)
+
+Fixing b:
+fmap id (Fst a) = Fst (id a) = Fst a = id $ Fst a
+fmap (f . g) (Fst a) = Fst (f . g $ a) = fmap f $ Fst (g a) = fmap f . fmap g $ Fst a
+(Like Identity.)
+
+
+data Snd a b = Snd b
+
+instance Bifunctor Snd where
+  bimap f g (Snd b) = Snd $ g b
+
+Fixing a:
+fmap id (Snd b) = Snd (id b) = Snd b = id $ Snd b
+fmap (f . g) (Snd b) = Snd (f . g $ b) = fmap f $ Snd (g b) = fmap f . fmap g $ Snd b
+(Like Identity.)
+
+Fixing b:
+fmap f (Snd b) = Snd b = id $ Snd b
+fmap (f . g) (Snd b) = Snd b = fmap f $ Snd b = fmap f . fmap g $ Snd b
+(Like Const.)

@@ -1,0 +1,1 @@
+Conversely, intuitively, we can always add arrows from the initial object in the coproduct diagram, which turns the diagram into a pullback. Intuitively, these diagrams are uniquely isomorphic.

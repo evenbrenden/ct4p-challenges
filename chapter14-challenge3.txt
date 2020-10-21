@@ -1,0 +1,7 @@
+alpha :: (a -> x) -> Reader a x
+alpha f = Reader f
+
+beta :: Reader a x -> (a -> x)
+beta :: (Reader f) = f
+
+Yes.

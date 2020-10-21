@@ -1,0 +1,13 @@
+If L :: D -> C is the left adjoint of R :: C -> D and vica versa, we have an isomorphism of hom-sets in C and D:
+
+C(Ld, c) ≅ D(d, Rc)
+
+This holds for all c and d. Substitute d = Rc:
+
+C((L * R)c, c) ≅ D(Rc, Rc)
+
+We know that the right hand side must contain at least on morphism, the identity. The natural transformation between these hom-sets will map the identity morphism to an element of C((L * R)c, c), or, inserting the identity functor I, a morphism in:
+
+C((L * R)c, Ic) = ε
+
+This is a family of morphisms parametrized by c. They form a natural transformation between the functor I and the functor L * R. This is exactly our counit ε.

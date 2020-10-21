@@ -1,0 +1,13 @@
+Generator: ()
+
+The free monoid for this generator is Monoid [()]: [()] ++ [()] = [(), ()]
+
+I suppose a lot of containers will do (that are isomorphic to list).
+
+This is isomorphic with the monoid for integer addition:
+
+h :: [()] -> Int
+h unitList = length unitList
+
+h_inv :: Int -> [()]
+h_inv number = replicate number ()

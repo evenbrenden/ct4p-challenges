@@ -1,0 +1,8 @@
+For the Maybe functor to be representable, we need:
+
+alpha :: (a -> x) -> Maybe x
+beta :: Maybe a -> (a -> x)
+
+As with the List functor, it's impossible to produce an x from the empty element:
+
+beta None = undefined

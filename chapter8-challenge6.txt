@@ -1,0 +1,1 @@
+Map can be implemented with the function getValue :: Key -> Type. As was shown in the book (using Reader), a function is a profunctor.

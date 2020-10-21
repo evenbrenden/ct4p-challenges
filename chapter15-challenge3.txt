@@ -1,0 +1,14 @@
+fa :: [()]
+fa = [(), ()] -- For example (information = 2)
+
+alpha :: (() -> b) -> [b]
+alpha h = fmap h fa
+
+anotherRepresentation :: (() -> b) -> [b]
+anotherRepresentation = alpha -- [f (), f ()] (information = 2)
+
+h :: () -> Int
+h _ = 40
+
+evaluatedRepresentation :: [Int]
+evaluatedRepresentation = alpha h -- [40, 40] (information = 2)

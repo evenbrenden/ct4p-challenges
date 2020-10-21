@@ -1,0 +1,1 @@
+Intuitively, we can always add arrows to the terminal object in the product diagram, which turns the diagram into a pullback. Intuitively, these diagrams are uniquely isomorphic.

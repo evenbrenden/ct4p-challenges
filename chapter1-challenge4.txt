@@ -1,0 +1,1 @@
+Provided that a URL A can take you to URL A, URL A can take you to URL B, URL B can take you to URL C, and URL A can also take you to URL C, then yes.

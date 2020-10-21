@@ -1,0 +1,15 @@
+type Maybe' a = Either (Const () a) (Identity a)
+data Either a b = Left a | Right b
+data Identity a = Identity a
+data Const c a = Const c
+
+type Maybe a = Just a | Nothing
+data Just a = Just a
+data Nothing = Nothing
+
+Maybe' a = Either (Const () a) (Identity a)
+         = Either (Const () a) (Just a)
+         = Left (Const () a) | Right (Just a)
+         = Left Nothing | Right (Just a)
+         = Idenity Nothing | Identity (Just a)
+         = Nothing | Just a

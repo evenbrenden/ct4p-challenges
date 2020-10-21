@@ -1,0 +1,15 @@
+data PreList a b = Nil | Cons a b
+
+instance Bifunctor PreList where
+  bimap f g Nil = Nil
+  bimap f g (Cons a b) = Cons (f a) (g b)
+
+Fixing one of the parameters and proves functoriality, which proves it for either parameter, which proves it is a bifunctor:
+
+Identity:
+fmap id Nil = Nil = id Nil
+fmap id (Cons a) = Cons (id a) = Cons a = id (Cons a)
+
+Composition:
+fmap (f . g) Nil = Nil = fmap g Nil = fmap f (fmap g Nil) = fmap f Nil . fmap g Nil
+fmap (f . g) (Cons a) = Cons (f . g $ a) = fmap f (Cons g a) = fmap f . fmap g $ Cons a

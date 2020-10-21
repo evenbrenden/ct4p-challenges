@@ -1,0 +1,13 @@
+The first definition: C(Ld, c) ≅ D(d, Rc) => existence of η and ε (shown in book + challenge 2)
+
+(Half of) the second definition: Existence of η and ε => existence of φ :: C(Ld, c) -> D(d, Rc) (shown in book)
+
+The missing piece is of the second definiton is: Existence of η and ε => existence of ψ :: D(d, Rc) -> C(Ld, c)
+
+Pick an arbitrary morphism g in D(d, Rc). We want to define a ψ that, acting on g, produces a morphism in C(Ld, c).
+
+There isn’t really much choice. One thing we can try is to lift g using L. That will produce a morphism Lg from Ld to L(Rc) - a morphism that's an element of C(Ld, (L * R)c).
+
+What we need for a component of ψ, is a morphism from Ld to c. That’s not a problem, since we can use a component of εc to get from Ld to (L * R)c. We get:
+
+ψg = Rg * εc

@@ -1,8 +1,0 @@
-Challenge 2a
-
-Partial order because every a is an actual b. Not total because not all bs are as, so there is not a relation between all elements.
-
-
-Challenge 2b
-
-Partial order because if T1 is a subtype of T2 and vica versa then T1 is the same type as T2. Not total because there may exist types that are not in relation to each other.

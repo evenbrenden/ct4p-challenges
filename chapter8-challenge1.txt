@@ -1,0 +1,12 @@
+data Pair a b = Pair a b
+
+instance Bifunctor Pair where
+  bimap f g (Pair x y) = Pair (f x) (g y)
+
+Fixing one of the parameters and proves functoriality, which proves it for either parameter, which proves it is a bifunctor:
+
+Identity:
+fmap id (Pair a) = Pair (id a) = Pair a = id (Pair a)
+
+Composition:
+fmap (f . g) (Pair a) = Pair (f . g $ a) = fmap f (Pair g a) = fmap f . fmap g $ Pair a

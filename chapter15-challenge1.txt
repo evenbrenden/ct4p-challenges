@@ -1,0 +1,16 @@
+psi . phi $ alpha =
+psi (phi alpha) =
+psi (alpha id) =
+psi alpha id =
+fmap id alpha =
+alpha
+=> psi . phi = id
+
+phi . psi $ fa =
+phi (psi fa) =
+phi ((\fa \h -> fmap h fa) fa) =
+phi (\h -> fmap h fa) =
+(\h -> fmap h fa) id =
+fmap id fa =
+fa
+=> phi . psi = id
