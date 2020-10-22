@@ -14,13 +14,13 @@ It produces a function m :: Either a b -> c.
 
 But we have chosen C as Hask and CxC as the other category (maybe we could have chosen a different one). If factorizer is going to serve as a natural transformation between CxC and C, we need to pair up the argument functions:
 
-factorizer' :: ((a -> c), (b -> c)) -> (Either a b -> c)
-factorizer' (i, j) (Left a) = i a
-factorizer' (i, j) (Right b) = j b
+factorizer_pair :: ((a -> c), (b -> c)) -> (Either a b -> c)
+factorizer_pair (i, j) (Left a) = i a
+factorizer_pair (i, j) (Right b) = j b
 
 To get the inverse of this we switch the arguments:
 
-factorizer_inv' :: (Either a b -> c) -> ((a -> c), (b -> c))
-factorizer_inv' eabc = (\a -> eabc (Left a), \b -> eabc (Right b))
+factorizer_pair_inv :: (Either a b -> c) -> ((a -> c), (b -> c))
+factorizer_pair_inv eabc = (\a -> eabc (Left a), \b -> eabc (Right b))
 
 Since this implementation goes for any a, b and c, we get naturality in a, b and c for free.

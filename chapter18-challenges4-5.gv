@@ -1,0 +1,44 @@
+digraph {
+  node [style="filled" color="black" fillcolor="gray"]
+  rankdir=LR
+
+  subgraph clusterCxC {
+    label="CxC"
+
+    ab [label="<a, b>"]
+    cc [label="<c, c>"]
+
+    { rank=same ab cc }
+  }
+
+  subgraph clusterC {
+    label="C"
+
+    eitherab [label="Either a b"]
+    c [label="c"]
+
+    { rank=same eitherab c }
+  }
+
+  ab -> cc [label="<i, j>"]
+  eitherab -> c [label="m"]
+  ab -> eitherab [label="Coproduct" color="red" penwidth=4]
+  c -> cc [label="Δ" color="blue" penwidth=4]
+
+  subgraph clusterCxCHomset {
+    label="(CxC)(<a, b>, Δc)"
+
+    ij [label="<i, j> = <a -> c, b -> c>"]
+  }
+
+  subgraph clusterCHomset {
+    label="C(Either a b, c)"
+
+    m [label="m :: Either a b -> c"]
+  }
+
+  ij -> m [label="Factorizer" penwidth=4]
+  m -> ij [label="Inverse factorizer" penwidth=4]
+
+  { rank=LR ij m }
+}
