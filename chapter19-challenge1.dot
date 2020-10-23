@@ -2,7 +2,18 @@ digraph {
   node [style="filled" color="black" fillcolor="gray"]
   rankdir=LR
 
-  // SKIPPED
+  /*
+    The set ((), Um) consists of functions that pick an element Um_x in Um.
+    There are as many functions in ((), Um) as there are different elements
+    Um_x in Um. A homomorphism in Mon(F(), m) is determined by the fact that it
+    can not contain more information than a number N, where N is the number of
+    ()s. For each m_x in m, such a morphism produces N times m_x in m. That's
+    the only homomorphism that can exist for a given m_x, because that's all
+    you can get out of F(). So Mon(F(), m) contains as many homomorphisms as
+    there are different elements m_x in m. Since Um is the underlying set of m,
+    the number of different elements m_x in m is the same as the number of
+    different elements Um_x in Um. Therefore, Mon(F(), m) ≅ Set((), Um).
+  */
 
   subgraph clusterM {
     label="Mon"
