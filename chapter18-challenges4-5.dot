@@ -1,5 +1,5 @@
 digraph {
-  node [style="filled" color="black" fillcolor="gray"]
+  node [style="filled" color="black" fillcolor="lightgray"]
   rankdir=LR
 
   subgraph clusterCxC {

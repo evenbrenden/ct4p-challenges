@@ -32,13 +32,13 @@
 <!-- ab -->
 <g id="node1" class="node">
 <title>ab</title>
-<ellipse fill="gray" stroke="black" cx="143.39" cy="-34" rx="43.59" ry="18"/>
+<ellipse fill="lightgray" stroke="black" cx="143.39" cy="-34" rx="43.59" ry="18"/>
 <text text-anchor="middle" x="143.39" y="-30.3" font-family="Times-Roman" font-size="14.00">&lt;a, b&gt;</text>
 </g>
 <!-- cc -->
 <g id="node2" class="node">
 <title>cc</title>
-<ellipse fill="gray" stroke="black" cx="143.39" cy="-106" rx="42.49" ry="18"/>
+<ellipse fill="lightgray" stroke="black" cx="143.39" cy="-106" rx="42.49" ry="18"/>
 <text text-anchor="middle" x="143.39" y="-102.3" font-family="Times-Roman" font-size="14.00">&lt;c, c&gt;</text>
 </g>
 <!-- ab&#45;&gt;cc -->
@@ -51,7 +51,7 @@
 <!-- eitherab -->
 <g id="node3" class="node">
 <title>eitherab</title>
-<ellipse fill="gray" stroke="black" cx="526.62" cy="-34" rx="54.69" ry="18"/>
+<ellipse fill="lightgray" stroke="black" cx="526.62" cy="-34" rx="54.69" ry="18"/>
 <text text-anchor="middle" x="526.62" y="-30.3" font-family="Times-Roman" font-size="14.00">Either a b</text>
 </g>
 <!-- ab&#45;&gt;eitherab -->
@@ -64,7 +64,7 @@
 <!-- c -->
 <g id="node4" class="node">
 <title>c</title>
-<ellipse fill="gray" stroke="black" cx="526.62" cy="-106" rx="27" ry="18"/>
+<ellipse fill="lightgray" stroke="black" cx="526.62" cy="-106" rx="27" ry="18"/>
 <text text-anchor="middle" x="526.62" y="-102.3" font-family="Times-Roman" font-size="14.00">c</text>
 </g>
 <!-- eitherab&#45;&gt;c -->
@@ -84,13 +84,13 @@
 <!-- ij -->
 <g id="node5" class="node">
 <title>ij</title>
-<ellipse fill="gray" stroke="black" cx="143.39" cy="-208" rx="127.28" ry="18"/>
+<ellipse fill="lightgray" stroke="black" cx="143.39" cy="-208" rx="127.28" ry="18"/>
 <text text-anchor="middle" x="143.39" y="-204.3" font-family="Times-Roman" font-size="14.00">&lt;i, j&gt; = &lt;a &#45;&gt; c, b &#45;&gt; c&gt;</text>
 </g>
 <!-- m -->
 <g id="node6" class="node">
 <title>m</title>
-<ellipse fill="gray" stroke="black" cx="526.62" cy="-189" rx="96.68" ry="18"/>
+<ellipse fill="lightgray" stroke="black" cx="526.62" cy="-189" rx="96.68" ry="18"/>
 <text text-anchor="middle" x="526.62" y="-185.3" font-family="Times-Roman" font-size="14.00">m :: Either a b &#45;&gt; c</text>
 </g>
 <!-- ij&#45;&gt;m -->

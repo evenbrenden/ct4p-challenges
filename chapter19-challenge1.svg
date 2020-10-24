@@ -22,13 +22,13 @@
 <!-- funit -->
 <g id="node1" class="node">
 <title>funit</title>
-<ellipse fill="gray" stroke="black" cx="43" cy="-34" rx="27" ry="18"/>
+<ellipse fill="lightgray" stroke="black" cx="43" cy="-34" rx="27" ry="18"/>
 <text text-anchor="middle" x="43" y="-30.3" font-family="Times-Roman" font-size="14.00">F()</text>
 </g>
 <!-- m -->
 <g id="node2" class="node">
 <title>m</title>
-<ellipse fill="gray" stroke="black" cx="43" cy="-106" rx="27" ry="18"/>
+<ellipse fill="lightgray" stroke="black" cx="43" cy="-106" rx="27" ry="18"/>
 <text text-anchor="middle" x="43" y="-102.3" font-family="Times-Roman" font-size="14.00">m</text>
 </g>
 <!-- funit&#45;&gt;m -->
@@ -41,7 +41,7 @@
 <!-- um -->
 <g id="node4" class="node">
 <title>um</title>
-<ellipse fill="gray" stroke="black" cx="144" cy="-106" rx="27" ry="18"/>
+<ellipse fill="lightgray" stroke="black" cx="144" cy="-106" rx="27" ry="18"/>
 <text text-anchor="middle" x="144" y="-102.3" font-family="Times-Roman" font-size="14.00">Um</text>
 </g>
 <!-- m&#45;&gt;um -->
@@ -54,7 +54,7 @@
 <!-- unit -->
 <g id="node3" class="node">
 <title>unit</title>
-<ellipse fill="gray" stroke="black" cx="144" cy="-34" rx="27" ry="18"/>
+<ellipse fill="lightgray" stroke="black" cx="144" cy="-34" rx="27" ry="18"/>
 <text text-anchor="middle" x="144" y="-30.3" font-family="Times-Roman" font-size="14.00">()</text>
 </g>
 <!-- unit&#45;&gt;funit -->
