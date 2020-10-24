@@ -4,4 +4,6 @@ A homomorphism in Mon(F(), m) is determined by the fact that it can not contain 
 
 Since Um is the underlying set of m, the number of different elements m_x in m is the same as the number of different elements Um_x in Um.
 
-Therefore, Mon(F(), m) ≅ Set((), Um).
+Finally, F simply maps () to F().
+
+Putting it all together, we must have that Mon(F(), m) ≅ Set((), Um).
