@@ -12,7 +12,7 @@ factorizer i j (Right b) = j b
 
 It produces a function m :: Either a b -> c.
 
-But we have chosen C as Hask and CxC as the other category (maybe we could have chosen a different one). If factorizer is going to serve as a natural transformation between CxC and C, we need to pair up the argument functions:
+But we have chosen C as Hask and CxC as the other category (maybe we could have chosen a different one). If factorizer is going to serve as a natural transformation between CxC and C, we need to pair up the argument functions (in other words, we uncurry):
 
 factorizer_pair :: ((a -> c), (b -> c)) -> (Either a b -> c)
 factorizer_pair (i, j) (Left a) = i a
