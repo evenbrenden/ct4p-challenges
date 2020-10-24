@@ -1,0 +1,23 @@
+digraph {
+  node [style="filled" color="black" fillcolor="lightgray"]
+
+  rankdir=LR
+  { rank=same a b }
+  { rank=same Gb FaGa }
+
+  a [label="a"]
+  b [label="b"]
+  Fb [label="Fb"]
+  Gb [label="Gb"]
+  FaGa [label="Fa = Ga"]
+
+  a -> b [label="f"]
+  a -> Gb
+  a -> FaGa
+  b -> Fb
+  b -> Gb
+  FaGa -> FaGa [label="αa = id"]
+  FaGa -> Fb [label="Ff" color="red"]
+  Fb -> Gb [label="αb" color="red"]
+  FaGa -> Gb [label="Gf = αb ∘ Ff" color="yellow"]
+}
