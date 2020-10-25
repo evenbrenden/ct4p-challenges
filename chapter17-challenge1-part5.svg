@@ -56,9 +56,9 @@
 <!-- Fa&#45;&gt;Ga -->
 <g id="edge6" class="edge">
 <title>Fa&#45;&gt;Ga</title>
-<path fill="none" stroke="orange" d="M118,-104.92C118,-88.8 118,-64.94 118,-46.3"/>
-<polygon fill="orange" stroke="orange" points="121.5,-46.29 118,-36.29 114.5,-46.29 121.5,-46.29"/>
-<text text-anchor="middle" x="107.5" y="-66.8" font-family="Times-Roman" font-size="14.00">αa = Gf ∘ αa = αa ∘ Ff</text>
+<path fill="none" stroke="orange" d="M118,-105C118,-85.43 118,-65.85 118,-46.28"/>
+<polygon fill="orange" stroke="orange" points="121.5,-46.05 118,-36.05 114.5,-46.05 121.5,-46.05"/>
+<text text-anchor="middle" x="109" y="-74.39" font-family="Times-Roman" font-size="14.00">αa</text>
 </g>
 <!-- Ga&#45;&gt;Ga -->
 <g id="edge5" class="edge">

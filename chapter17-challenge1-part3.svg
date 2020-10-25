@@ -75,7 +75,7 @@
 <title>FaGa&#45;&gt;Gb</title>
 <path fill="none" stroke="yellow" d="M137.15,-116.59C137.15,-108.94 137.15,-99.89 137.15,-91.43"/>
 <polygon fill="yellow" stroke="yellow" points="140.65,-91.17 137.15,-81.17 133.65,-91.17 140.65,-91.17"/>
-<text text-anchor="middle" x="126.65" y="-95.3" font-family="Times-Roman" font-size="14.00">Gf = αb ∘ Ff</text>
+<text text-anchor="middle" x="126.65" y="-95.3" font-family="Times-Roman" font-size="14.00">Gf</text>
 </g>
 <!-- FaGa&#45;&gt;FaGa -->
 <g id="edge6" class="edge">

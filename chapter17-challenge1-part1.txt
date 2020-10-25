@@ -1,0 +1,2 @@
+Gf ∘ αa = αb ∘ Ff
+Gf ∘ αa = αb // Ff = id

@@ -14,5 +14,5 @@ digraph {
   a -> Ga
   Fa -> Fa [label="Ff = id" color="red"]
   Ga -> Ga [label="Gf = id" color="yellow"]
-  Fa -> Ga [label="αa = Gf ∘ αa = αa ∘ Ff" color="orange"]
+  Fa -> Ga [xlabel="αa" color="orange"]
 }
