@@ -1,11 +1,11 @@
 -- Store comonad
 
 class Functor w => Comonad w where
-  extract :: w a -> a
   duplicate :: w a -> w (w a)
   duplicate = extend id
   extend :: (w a -> b) -> w a -> w b
   extend f = fmap f . duplicate
+  extract :: w a -> a
 
 data Store s a = Store (s -> a) s
 
@@ -22,27 +22,34 @@ experiment k (Store f s) = f <$> k s
 runStore :: Store s a -> a
 runStore (Store sa s) = sa s
 
--- Stream comonad
+-- Stream functor
 
-data Stream a = Cons a (Stream a) deriving Show
+data Stream a = Cons a (Stream a) (Stream a) deriving Show
 
 instance Functor Stream where
-  fmap f (Cons a s) = Cons (f a) (fmap f s)
-
-instance Comonad Stream where
-  extract (Cons a _) = a
-  duplicate (Cons a as) = Cons (Cons a as) (duplicate as)
+  fmap f (Cons a sl sr) = Cons (f a) (fmap f sl) (fmap f sr)
 
 head' :: Stream a -> a
-head' = extract
+head' (Cons a _ _ ) = a
 
-tail' :: Stream a -> Stream a
-tail' (Cons _ s) = s
+fwd :: Stream a -> Stream a
+fwd (Cons _ _ sr) = sr
+
+bwd :: Stream a -> Stream a
+bwd (Cons _ sl _) = sl
 
 get :: Int -> Stream a -> a
-get pos s = if pos == 0 then (head' s) else get (pos - 1) (tail' s)
+get pos s =
+  if pos == 0
+    then (head' s)
+  else if pos > 0
+    then get (pos - 1) (fwd s)
+  else get (pos + 1) (bwd s)
 
--- Game of Life
+monotonicallyIncreasing :: Int -> Stream Int
+monotonicallyIncreasing a = Cons a (monotonicallyIncreasing (a - 1)) (monotonicallyIncreasing (a + 1))
+
+-- 1-dimensional GoL: Cells with exactly one living neighbor change (alive cells become dead, dead cells become alive)
 
 data Cell = Live | Dead deriving Show
 
@@ -57,16 +64,11 @@ next Dead Dead Live = Live
 next Live Dead Dead = Live
 next Dead Dead Dead = Dead
 
-nextValue grid 0 = next Dead (get 1 grid) (get 2 grid) -- unidirectional so wtd
 nextValue grid pos = next (get (pos - 1) grid) (get pos grid) (get (pos + 1) grid)
-
 gridStore :: Grid -> Store Int Cell
 gridStore grid =
   let startPos = 0
   in Store (\i -> nextValue grid i) startPos
-
-monotonicallyIncreasing :: Int -> Stream Int
-monotonicallyIncreasing a = Cons a (monotonicallyIncreasing (a + 1))
 
 iterations :: Grid -> [Grid]
 iterations grid =
@@ -76,23 +78,23 @@ iterations grid =
   in nextIteration:(iterations nextIteration)
 
 allDead :: Grid
-allDead = Cons Dead allDead
+allDead = Cons Dead allDead allDead
 
 initial :: Grid
-initial = Cons Live allDead
+initial = Cons Dead allDead (Cons Dead allDead (Cons Dead allDead (Cons Live allDead (Cons Live allDead allDead))))
 
 it1 = head $ iterations initial
 it2 = head $ drop 1 $ iterations initial
 it3 = head $ drop 2 $ iterations initial
 it4 = head $ drop 3 $ iterations initial
 
-toList :: Int -> Stream a -> [a]
-toList n (Cons a s) = if n == 1 then [a] else a:(toList (n-1) s)
+toListFwd :: Int -> Stream a -> [a]
+toListFwd n (Cons a sr sl) = if n == 1 then [a] else a:(toListFwd (n - 1) sl)
 
 main = do
-  putStrLn $ "Initial state:\t" ++ (show $ toList 8 initial)
-  putStrLn $ "1st iteration:\t" ++ (show $ toList 8 it1)
-  putStrLn $ "2nd iteration:\t" ++ (show $ toList 8 it2)
-  putStrLn $ "3rd iteration:\t" ++ (show $ toList 8 it3)
-  putStrLn $ "4th iteration:\t" ++ (show $ toList 8 it4)
+  putStrLn $ "Initial state:\t" ++ (show $ toListFwd 8 initial)
+  putStrLn $ "1st iteration:\t" ++ (show $ toListFwd 8 it1)
+  putStrLn $ "2nd iteration:\t" ++ (show $ toListFwd 8 it2)
+  putStrLn $ "3rd iteration:\t" ++ (show $ toListFwd 8 it3)
+  putStrLn $ "4th iteration:\t" ++ (show $ toListFwd 8 it4)
   return ()
