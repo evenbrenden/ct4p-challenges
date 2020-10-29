@@ -1,4 +1,4 @@
--- Store comonad (from Control.Comonad.Store)
+-- Store comonad (from the book and Control.Comonad.Store)
 
 class Functor w => Comonad w where
   duplicate :: w a -> w (w a)
@@ -19,7 +19,7 @@ instance Comonad (Store s) where
 experiment :: Functor f => (s -> f s) -> Store s a -> f a
 experiment k (Store f s) = f <$> k s
 
--- Helpers (from Data.List.Split)
+-- Helpers (from Data.List.Split and Data.List.HT)
 
 build :: ((a -> [a] -> [a]) -> [a] -> [a]) -> [a]
 build g = g (:) []
@@ -29,6 +29,9 @@ chunksOf i ls = map (take i) (build (splitter ls)) where
   splitter :: [e] -> ([e] -> a -> a) -> a -> a
   splitter [] _ n = n
   splitter l c n  = l `c` splitter (drop i l) c n
+
+range :: Num a => Int -> [a]
+range n = take n (iterate (+1) 0)
 
 -- Game of Life
 
@@ -75,8 +78,8 @@ makeIterations step grid = grid:makeIterations step (step grid)
 
 toString :: Int -> Grid -> String
 toString window (Store sa _) =
-  let view = [(x, y) | y <- [0..window - 1], x <- [0..window - 1]]
-      selectedCells = sa <$> view
+  let viewPositions = [(x, y) | y <- range window, x <- range window]
+      selectedCells = sa <$> viewPositions
       rowsOfCells = chunksOf window $ selectedCells
       render cells = concat $ show <$> cells
       renderedRows = unlines $ render <$> rowsOfCells
@@ -85,8 +88,8 @@ toString window (Store sa _) =
 main = do
   let printWindow = 3 -- Print a 3x3 grid
   let numIterations = 3 -- Print 3 iterations
-  let seed = makeGrid [(0, 1), (1, 1), (2, 1)] -- Seed is a "blinker"
+  let seed = makeGrid [(0, 1), (1, 1), (2, 1)] -- "Blinker" seed
   let iterations = take numIterations $ makeIterations step seed
-  let printable = toString printWindow <$> iterations
-  mapM_ putStrLn printable
+  let printables = toString printWindow <$> iterations
+  mapM_ putStrLn printables
   return ()
