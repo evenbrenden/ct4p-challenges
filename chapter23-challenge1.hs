@@ -79,11 +79,12 @@ toString window (Store sa _) =
       selectedCells = sa <$> view
       rowsOfCells = chunksOf window $ selectedCells
       render cells = concat $ show <$> cells
-      appendNewLine string = string ++ "\n"
-      renderedRows = appendNewLine . render <$> rowsOfCells
-      -- Empty newlines are removed (fsr) so add whitespace
-      appendSeparator string = string ++ "\v\n"
-  in appendSeparator $ concatMap appendNewLine renderedRows
+      renderedRows = unlines $ render <$> rowsOfCells
+  in renderedRows
+
+-- Empty newlines are removed (fsr) so add whitespace
+appendSeparator :: String -> String
+appendSeparator = flip (++) "\v\n"
 
 main = do
   let printWindow = 3
@@ -91,5 +92,6 @@ main = do
   let seed = makeGrid [(0, 1), (1, 1), (2, 1)] -- Blinker
   let iterations = take numIterations $ makeIterations step seed
   let printable = toString printWindow <$> iterations
-  mapM_ putStrLn printable
+  let separated = appendSeparator <$> printable
+  mapM_ putStrLn separated
   return ()
