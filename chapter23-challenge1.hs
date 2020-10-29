@@ -1,6 +1,7 @@
--- nix-shell -p "haskellPackages.ghcWithPackages (p: [p.split])" --run "runhaskell chapter23-challenge1.hs"
+-- nix-shell -p "haskellPackages.ghcWithPackages (p: [p.split p.MemoTrie])" --run "runhaskell chapter23-challenge1.hs"
 
 import Data.List.Split -- For chunksOf
+import Data.MemoTrie -- For memoization
 
 -- Store comonad
 
@@ -13,10 +14,10 @@ class Functor w => Comonad w where
 
 data Store s a = Store (s -> a) s
 
-instance Functor (Store s) where
+instance HasTrie s => Functor (Store s) where
   fmap f (Store sa s) = Store (f . sa) s
 
-instance Comonad (Store s) where
+instance HasTrie s => Comonad (Store s) where
   extract (Store f s) = f s
   duplicate (Store f s) = Store (Store f) s
 
