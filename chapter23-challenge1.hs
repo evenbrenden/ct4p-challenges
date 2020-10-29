@@ -82,16 +82,11 @@ toString window (Store sa _) =
       renderedRows = unlines $ render <$> rowsOfCells
   in renderedRows
 
--- Empty newlines are removed (fsr) so add whitespace
-appendSeparator :: String -> String
-appendSeparator = flip (++) "\v\n"
-
 main = do
-  let printWindow = 3
-  let numIterations = 3
-  let seed = makeGrid [(0, 1), (1, 1), (2, 1)] -- Blinker
+  let printWindow = 3 -- Print a 3x3 grid
+  let numIterations = 3 -- Print 3 iterations
+  let seed = makeGrid [(0, 1), (1, 1), (2, 1)] -- Seed is a "blinker"
   let iterations = take numIterations $ makeIterations step seed
   let printable = toString printWindow <$> iterations
-  let separated = appendSeparator <$> printable
-  mapM_ putStrLn separated
+  mapM_ putStrLn printable
   return ()
