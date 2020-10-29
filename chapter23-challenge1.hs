@@ -1,4 +1,8 @@
--- Store comonad (from the book and Control.Comonad.Store)
+-- nix-shell -p "haskellPackages.ghcWithPackages (p: [p.split])" --run "runhaskell chapter23-challenge1.hs"
+
+import Data.List.Split -- For chunksOf
+
+-- Store comonad
 
 class Functor w => Comonad w where
   duplicate :: w a -> w (w a)
@@ -18,20 +22,6 @@ instance Comonad (Store s) where
 
 experiment :: Functor f => (s -> f s) -> Store s a -> f a
 experiment k (Store f s) = f <$> k s
-
--- Helpers (from Data.List.Split and Data.List.HT)
-
-build :: ((a -> [a] -> [a]) -> [a] -> [a]) -> [a]
-build g = g (:) []
-
-chunksOf :: Int -> [e] -> [[e]]
-chunksOf i ls = map (take i) (build (splitter ls)) where
-  splitter :: [e] -> ([e] -> a -> a) -> a -> a
-  splitter [] _ n = n
-  splitter l c n  = l `c` splitter (drop i l) c n
-
-range :: Num a => Int -> [a]
-range n = take n (iterate (+1) 0)
 
 -- Game of Life
 
@@ -78,7 +68,8 @@ makeIterations step grid = grid:makeIterations step (step grid)
 
 toString :: Int -> Grid -> String
 toString window (Store sa _) =
-  let viewPositions = [(x, y) | y <- range window, x <- range window]
+  let range n = take n (iterate (+1) 0)
+      viewPositions = [(x, y) | y <- range window, x <- range window]
       selectedCells = sa <$> viewPositions
       rowsOfCells = chunksOf window $ selectedCells
       render cells = concat $ show <$> cells
