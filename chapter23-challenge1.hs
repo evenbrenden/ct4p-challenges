@@ -41,10 +41,10 @@ type Grid = Store Position State
 type Stepper = Grid -> Grid
 
 relativeNeighbourPositions :: [Position]
-relativeNeighbourPositions = [(x, y) | x <- [-1, 0, 1], y <- [-1, 0, 1], (x, y) /= (0, 0)]
+relativeNeighbourPositions = [(x, y) | x <- [-1..1], y <- [-1..1], (x, y) /= (0, 0)]
 
 move :: Position -> Position -> Position
-move (x, y) (shiftX, shiftY) = (x + shiftX, y + shiftY)
+move (x, y) (dX, dY) = (x + dX, y + dY)
 
 neighbourPositions :: Position -> [Position]
 neighbourPositions position = move position <$> relativeNeighbourPositions
