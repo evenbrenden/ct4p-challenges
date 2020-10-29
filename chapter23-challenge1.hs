@@ -44,7 +44,7 @@ relativeNeighbourPositions :: [Position]
 relativeNeighbourPositions = [(x, y) | x <- [-1..1], y <- [-1..1], (x, y) /= (0, 0)]
 
 move :: Position -> Position -> Position
-move (x, y) (dX, dY) = (x + dX, y + dY)
+move (x, y) (dx, dy) = (x + dx, y + dy)
 
 neighbourPositions :: Position -> [Position]
 neighbourPositions position = move position <$> relativeNeighbourPositions
