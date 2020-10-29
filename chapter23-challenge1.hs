@@ -32,55 +32,64 @@ chunksOf i ls = map (take i) (build (splitter ls)) where
 
 -- Game of Life
 
-data Cell = Live | Dead deriving (Eq, Show)
+data State = Live | Dead deriving (Eq, Show)
 type Position = (Int, Int)
-type Grid = Store Position Cell
+type Grid = Store Position State
 type Stepper = Grid -> Grid
 
-calc :: Grid -> Cell
-calc grid =
-  let current = extract grid
-      relativeNeighbourPositions = [(x, y) | x <- [-1, 0, 1], y <- [-1, 0, 1], (x, y) /= (0, 0)]
-      shiftPositions (x, y) (shiftX, shiftY) = (x + shiftX, y + shiftY)
-      absoluteNeighbourPositions position = shiftPositions position <$> relativeNeighbourPositions
-      neighbours = experiment absoluteNeighbourPositions grid
-      numNeighboursAlive = length (filter (== Live) neighbours)
-  in if (current == Live && (numNeighboursAlive == 2 || numNeighboursAlive == 3)) ||
-        (current == Dead && numNeighboursAlive == 3)
+relativeNeighbourPositions :: [Position]
+relativeNeighbourPositions = [(x, y) | x <- [-1, 0, 1], y <- [-1, 0, 1], (x, y) /= (0, 0)]
+
+move :: Position -> Position -> Position
+move (x, y) (shiftX, shiftY) = (x + shiftX, y + shiftY)
+
+neighbourPositions :: Position -> [Position]
+neighbourPositions position = move position <$> relativeNeighbourPositions
+
+neighbourStates :: Grid -> [State]
+neighbourStates grid = experiment neighbourPositions grid
+
+nextState :: Grid -> State
+nextState grid =
+  let currentState = extract grid
+      numNeighboursAlive = length (filter (== Live) (neighbourStates grid))
+  in if (currentState == Live && (numNeighboursAlive == 2 || numNeighboursAlive == 3)) ||
+        (currentState == Dead && numNeighboursAlive == 3)
       then Live
       else Dead
 
 step :: Stepper
-step = extend calc
+step = extend nextState
 
 makeGrid :: [Position] -> Grid
 makeGrid livePositions =
   let startingPosition = (0, 0)
-      lookupCell position = if elem position livePositions then Live else Dead
-  in Store lookupCell startingPosition
+      lookupState position =
+        if elem position livePositions
+        then Live
+        else Dead
+  in Store lookupState startingPosition
 
 makeIterations :: Stepper -> Grid -> [Grid]
 makeIterations step grid = grid:makeIterations step (step grid)
 
-toString :: Int -> Grid -> [String]
+toString :: Int -> Grid -> String
 toString window (Store sa _) =
-  let view = [(y, x) | x <- [0..window - 1], y <- [0..window - 1]]
-      list = sa <$> view
-      rows = chunksOf window list
+  let view = [(x, y) | y <- [0..window - 1], x <- [0..window - 1]]
+      selectedCells = sa <$> view
+      rowsOfCells = chunksOf window $ selectedCells
       render cells = concat $ show <$> cells
-      addNewLine string = string ++ "\n"
-  in addNewLine . render <$> rows
+      appendNewLine string = string ++ "\n"
+      renderedRows = appendNewLine . render <$> rowsOfCells
+      -- Empty newlines are removed (fsr) so add whitespace
+      appendSeparator string = string ++ "\v\n"
+  in appendSeparator $ concatMap appendNewLine renderedRows
 
 main = do
   let printWindow = 3
   let numIterations = 3
-  let initialGrid = makeGrid [(0, 1), (1, 1), (2, 1)]
-  let iterations = take numIterations $ makeIterations step initialGrid
+  let seed = makeGrid [(0, 1), (1, 1), (2, 1)] -- Blinker
+  let iterations = take numIterations $ makeIterations step seed
   let printable = toString printWindow <$> iterations
-  putStrLn "------------"
-  mapM_ putStrLn $ head printable
-  putStrLn "------------"
-  mapM_ putStrLn $ head $ drop 1 $ printable
-  putStrLn "------------"
-  mapM_ putStrLn $ head $ drop 2 $ printable
+  mapM_ putStrLn printable
   return ()
