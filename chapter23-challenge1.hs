@@ -1,9 +1,10 @@
 #! /usr/bin/env nix-shell
 #! nix-shell -p ghcid
-#! nix-shell -p "haskellPackages.ghcWithPackages (p: [p.split p.MemoTrie])"
+#! nix-shell -p "haskellPackages.ghcWithPackages (p: [p.split p.utility-ht p.MemoTrie])"
 #! nix-shell -i "ghcid -c 'ghci -Wall' -T main"
 
 import Data.List.Split -- For chunksOf
+import Data.List.HT -- For range
 import Data.MemoTrie -- For memoization
 
 -- Store comonad
@@ -72,8 +73,7 @@ makeIterations step' grid = grid:makeIterations step' (step' grid)
 
 toString :: Int -> Grid -> String
 toString window (Store sa _) =
-  let range n = take n (iterate (+1) 0)
-      viewPositions = [(x, y) | y <- range window, x <- range window]
+  let viewPositions = [(x, y) | y <- range window, x <- range window]
       selectedCells = sa <$> viewPositions
       rowsOfCells = chunksOf window $ selectedCells
       render cells = concat $ show <$> cells
