@@ -5,7 +5,7 @@
 
 import Data.List.Split -- For chunksOf
 import Data.List.HT -- For range
-import Data.MemoTrie -- For memoization
+import Data.MemoTrie -- For memoization (I swear it worked for a minute, but now it doesn't :<)
 
 -- Store comonad
 
