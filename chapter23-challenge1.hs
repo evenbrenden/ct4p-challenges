@@ -5,7 +5,7 @@
 
 import Data.List.Split -- For chunksOf
 import Data.List.HT -- For range
-import Data.MemoTrie -- For memoization (I swear it worked for a minute, but now it doesn't :<)
+import Data.MemoTrie -- For memoization
 
 -- Store comonad
 
@@ -19,7 +19,7 @@ class Functor w => Comonad w where
 data Store s a = Store (s -> a) s
 
 instance HasTrie s => Functor (Store s) where
-  fmap f (Store sa s) = Store (f . sa) s
+  fmap f (Store sa s) = Store (memo $ f . sa) s
 
 instance HasTrie s => Comonad (Store s) where
   extract (Store sa s) = sa s
@@ -83,7 +83,7 @@ toString window (Store sa _) =
 main :: IO ()
 main = do
   let printWindow = 3 -- Print a 3x3 grid
-  let numIterations = 3 -- Print 3 iterations
+  let numIterations = 10 -- Print 3 iterations
   let seed = makeGrid [(0, 1), (1, 1), (2, 1)] -- "Blinker" seed
   let iterations = take numIterations $ makeIterations step seed
   let printables = toString printWindow <$> iterations
