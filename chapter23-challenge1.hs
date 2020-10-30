@@ -22,8 +22,8 @@ instance HasTrie s => Functor (Store s) where
   fmap f (Store sa s) = Store (f . sa) s
 
 instance HasTrie s => Comonad (Store s) where
-  extract (Store f s) = f s
-  duplicate (Store f s) = Store (Store f) s
+  extract (Store sa s) = sa s
+  duplicate (Store sa s) = Store (Store sa) s
 
 experiment :: Functor f => (s -> f s) -> Store s a -> f a
 experiment k (Store f s) = f <$> k s
