@@ -1,4 +1,6 @@
--- nix-shell -p "haskellPackages.ghcWithPackages (p: [p.split p.MemoTrie])" --run "runhaskell chapter23-challenge1.hs"
+#! /usr/bin/env nix-shell
+#! nix-shell -p "haskellPackages.ghcWithPackages (p: [p.split p.MemoTrie])"
+#! nix-shell -i runhaskell
 
 import Data.List.Split -- For chunksOf
 import Data.MemoTrie -- For memoization
