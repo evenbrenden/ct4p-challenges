@@ -1,6 +1,7 @@
 #! /usr/bin/env nix-shell
+#! nix-shell -p ghcid
 #! nix-shell -p "haskellPackages.ghcWithPackages (p: [p.split p.MemoTrie])"
-#! nix-shell -i runhaskell
+#! nix-shell -i "ghcid -c 'ghci -Wall' -T main"
 
 import Data.List.Split -- For chunksOf
 import Data.MemoTrie -- For memoization
