@@ -68,7 +68,7 @@ makeGrid livePositions =
   in Store lookupState startingPosition
 
 makeIterations :: Stepper -> Grid -> [Grid]
-makeIterations step grid = grid:makeIterations step (step grid)
+makeIterations step' grid = grid:makeIterations step' (step' grid)
 
 toString :: Int -> Grid -> String
 toString window (Store sa _) =
@@ -80,6 +80,7 @@ toString window (Store sa _) =
       renderedRows = unlines $ render <$> rowsOfCells
   in renderedRows
 
+main :: IO ()
 main = do
   let printWindow = 3 -- Print a 3x3 grid
   let numIterations = 3 -- Print 3 iterations
