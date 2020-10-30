@@ -30,7 +30,12 @@ experiment k (Store f s) = f <$> k s
 
 -- Game of Life
 
-data State = Live | Dead deriving (Eq, Show)
+data State = Live | Dead deriving Eq
+
+instance Show State where
+    show Live = "██"
+    show Dead = "░░"
+
 type Position = (Int, Int)
 type Grid = Store Position State
 type Stepper = Grid -> Grid
@@ -82,9 +87,9 @@ toString window (Store sa _) =
 
 main :: IO ()
 main = do
-  let printWindow = 3 -- Print a 3x3 grid
+  let printWindow = 5 -- Print a 3x3 grid
   let numIterations = 10 -- Print 3 iterations
-  let seed = makeGrid [(0, 1), (1, 1), (2, 1)] -- "Blinker" seed
+  let seed = makeGrid [(1, 2), (2, 2), (3, 2)] -- "Blinker" seed
   let iterations = take numIterations $ makeIterations step seed
   let printables = toString printWindow <$> iterations
   mapM_ putStrLn printables
