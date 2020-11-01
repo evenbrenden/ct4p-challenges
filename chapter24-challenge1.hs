@@ -19,5 +19,5 @@ evalPoly poly x = sum $ calcs poly x
 
 main :: IO ()
 main = do
-  putStrLn $ show $ evalPoly [-1, 0, 4] 2
+  putStrLn $ show $ evalPoly [-1, 0, 4] 2 -- 4x^2 - 1, x = 2
   return ()
