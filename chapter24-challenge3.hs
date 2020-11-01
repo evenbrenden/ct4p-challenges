@@ -11,7 +11,6 @@ data RingF a = RZero
              | RMul a a
              | RNeg a
 
--- 2x2 not enforced sry
 type Matrix = [[Int]]
 type Row = [Int]
 type Col = [Int]
@@ -38,6 +37,6 @@ evalSM (RNeg n) = (map . map $ (0-)) n
 
 main :: IO ()
 main = do
-  let example = RMul [[2, 0], [3, 0]] [[2, 3], [0, 0]]
+  let example = RMul [[2, 0, 1], [3, 0, 1]] [[2, 3], [0, 0], [1, 1]]
   putStrLn $ show $ evalSM example
   return ()
