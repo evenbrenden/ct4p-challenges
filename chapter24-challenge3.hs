@@ -11,7 +11,7 @@ data RingF a = RZero
              | RMul a a
              | RNeg a
 
--- Square order not enforced sry
+-- 2x2 not enforced sry
 type Matrix = [[Int]]
 type Row = [Int]
 type Col = [Int]
