@@ -13,34 +13,37 @@ data RingF a = RZero
 
 type Poly = [Int]
 
-sum' :: (Int, Int) -> Int
-sum' (x, y) = x + y
+add :: (Int, Int) -> Int
+add (x, y) = x + y
 
-zipPad :: [Int] -> [Int] -> [(Int, Int)]
+zipPad :: Poly -> Poly -> [(Int, Int)]
 zipPad (x:xs) (y:ys) = (x,y):zipPad xs ys
 zipPad [] ys = zip (repeat 0) ys
 zipPad xs [] = zip xs (repeat 0)
 
-zipWithSumPad :: [Int] -> [Int] -> [Int]
-zipWithSumPad xs ys = sum' <$> zipPad xs ys
+zipWithAddPad :: Poly -> Poly -> Poly
+zipWithAddPad xs ys = add <$> zipPad xs ys
 
-makeShifts :: [Int] -> Int -> [[Int]]
+makeShifts :: Poly -> Int -> [Poly]
 makeShifts xs n =
     if n == 0 then [xs]
-    else makeShifts xs (n - 1) ++ [(replicate n 0 ++ xs)]
+    else makeShifts xs (n - 1) ++ [replicate n 0 ++ xs]
 
-multiZip :: [Int] -> [[Int]] -> [[Int]]
-multiZip xs ys = zipWith (\x ys' -> (*x) <$> ys') xs ys
+scale :: Int -> Poly -> Poly
+scale x ys = (*x) <$> ys
 
-concatZipSum :: [[Int]] -> [Int]
-concatZipSum (m:ms) = zipWithSumPad m (concatZipSum ms)
-concatZipSum [] = []
+multiZip :: Poly -> [Poly] -> [Poly]
+multiZip xs yss = zipWith scale xs yss
+
+concatZipAdd :: [Poly] -> Poly
+concatZipAdd (m:ms) = zipWithAddPad m (concatZipAdd ms)
+concatZipAdd [] = []
 
 evalP :: Algebra RingF Poly
 evalP RZero = []
 evalP ROne = [1]
-evalP (RAdd xs ys) = zipWithSumPad xs ys
-evalP (RMul xs ys) = concatZipSum $ multiZip xs (makeShifts ys (length xs))
+evalP (RAdd xs ys) = zipWithAddPad xs ys
+evalP (RMul xs ys) = concatZipAdd $ multiZip xs (makeShifts ys (length xs))
 evalP (RNeg n) = map (0-) n
 
 main :: IO ()
