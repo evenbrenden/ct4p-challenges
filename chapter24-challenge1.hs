@@ -41,7 +41,7 @@ concatZipAdd [] = []
 
 evalP :: Algebra RingF Poly
 evalP RZero = []
-evalP ROne = [1]
+evalP ROne = [1] -- Hm
 evalP (RAdd xs ys) = zipWithAddPad xs ys
 evalP (RMul xs ys) = concatZipAdd $ multiZip xs (makeShifts ys (length xs))
 evalP (RNeg n) = map (0-) n

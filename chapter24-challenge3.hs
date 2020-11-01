@@ -30,7 +30,7 @@ multiplyRow sm row = multiply row <$> sm
 
 evalSM :: Algebra RingF Matrix
 evalSM RZero = [[]]
-evalSM ROne = [[1]]
+evalSM ROne = [[1]] -- Hm
 evalSM (RAdd sm1 sm2) = add <$> zip sm1 sm2
 evalSM (RMul sm1 sm2) = multiplyRow sm1 <$> (transpose sm2)
 evalSM (RNeg n) = (map . map $ (0-)) n
