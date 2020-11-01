@@ -5,38 +5,36 @@
 
 type Algebra f a = f a -> a
 
-data RingF a = RZero
-             | ROne
-             | RAdd a a
-             | RMul a a
-             | RNeg a
+data Expr =
+      RZero
+    | ROne
+    | RAdd Expr Expr
+    | RMul Expr Expr
+    | RNeg Expr
 
-type Matrix = [[Int]]
-type Row = [Int]
-type Col = [Int]
+-- 2x2 matrix as (row, row)
+type Matrix2x2 = ((Int, Int), (Int, Int))
 
-add :: (Row, Row) -> Row
-add (r1, r2) = zipWith (+) r1 r2
+add :: Matrix2x2 -> Matrix2x2 -> Matrix2x2
+add ((aa1, ab1), (ba1, bb1)) ((aa2, ab2), (ba2, bb2)) =
+    ((aa1 + aa2, ab1 + ab2), (ba1 + ba2, bb1 + bb2))
 
-transpose :: Matrix -> Matrix
-transpose ([]:_) = []
-transpose x = map head x:transpose (map tail x)
+mul :: Matrix2x2 -> Matrix2x2 -> Matrix2x2
+mul ((aa1, ab1), (ba1, bb1)) ((aa2, ab2), (ba2, bb2)) =
+    ((aa1 * aa2 + ab1 * ba2, aa1 * ab2 + ab1 * bb2), (ba1 * aa2 + bb1 * ba2, ba1 * ab2 + bb1 * bb2))
 
-multiply :: Row -> Col -> Int
-multiply row col = foldr (+) 0 $ zipWith (*) row col
+neg :: Matrix2x2 -> Matrix2x2
+neg ((aa, ab), (ba, bb)) = ((-aa, -ab), (-ba, -bb))
 
-multiplyRow :: Matrix -> Row -> Row
-multiplyRow sm row = multiply row <$> sm
-
-evalSM :: Algebra RingF Matrix
-evalSM RZero = [[]]
-evalSM ROne = [[1]] -- Hm
-evalSM (RAdd sm1 sm2) = add <$> zip sm1 sm2
-evalSM (RMul sm1 sm2) = multiplyRow sm1 <$> (transpose sm2)
-evalSM (RNeg n) = (map . map $ (0-)) n
+evalZ :: Expr -> Matrix2x2
+evalZ RZero = ((0, 0), (0, 0))
+evalZ ROne = ((1, 0), (0, 1))
+evalZ (RAdd m1 m2) = add (evalZ m1) (evalZ m2)
+evalZ (RMul m1 m2) = mul (evalZ m1) (evalZ m2)
+evalZ (RNeg m) = neg (evalZ m)
 
 main :: IO ()
 main = do
-  let example = RMul [[2, 0, 1], [3, 0, 1]] [[2, 3], [0, 0], [1, 1]]
-  putStrLn $ show $ evalSM example
+  let expr = RMul (RAdd ROne ROne) (RNeg ROne)
+  putStrLn $ show $ evalZ expr
   return ()
