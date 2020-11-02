@@ -37,6 +37,6 @@ squares = toListC squares'
 
 main :: IO ()
 main = do
-  -- let someSquares = take 10 $ squares
+  let someSquares = take 10 $ squares
   putStrLn $ show someSquares
   return ()
