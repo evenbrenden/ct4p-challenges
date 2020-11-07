@@ -1,0 +1,31 @@
+We are going to define the adjunction of UW and FW, where W is a comonad and (a, f) is a W-coalgebra consisting of a carrier a and an coevaluator f (coherence conditions assumed).
+
+The left adjoint UW is a forgetful functor that forgets coevaluation:
+
+UW :: (a, f) -> a
+
+Given a natural transformation δ that corresponds to the comonad duplicate, the right adjoint FW is a cofree functor that generates cofree W-coalgebras:
+
+FW :: a -> (Wa, δa)
+
+The unit is:
+
+η :: I -> FW * UW
+
+We are going to calculate the component at (a, f) of this transformation. On the left side of the morphism, UW takes the a out of (a, f), and FW generates a (Wa, δa) from a. On the right side, the identity functor gives us an (a, f). So η is a morphism from (a, f) to (Wa, δa), which is a homomorphism of W-coalgebras. Since Wf * f at a is W(Wa) and δ * f at a is also W(Wa) (this is the commuting square in section 25.3), the component of the morphism η at a is f.
+
+The counit is:
+
+ε :: UW * FW -> I
+
+We are going to calculate the component a of this transformation. On the left side of the morphism, the identity functor I gives us an a. On the right side, FW at a generates (Wa, δa), from which UW picks Wa. So ε is a morphism from Wa to a. This corresponds to the comonad extract natural transformation.
+
+To complete the definition of the adjunction between UW and FW, we also need to check the triangular identities. We're not going to do that here.
+
+Now let's see that this adjunction gives rise to a comonad via the endofunctor UW * FW. The action of FW on an a gives (Wa, δa), from which UW picks Wa. In other words, UWa * FWa is Wa, which means that UW * FW is W (a comonad).
+
+Following the template of section 25.1, we have that the unit of the adjunction produces comonadic duplication through the following formula:
+
+δ = UW * η * FW
+
+We are going to calculate the component of δ at a. FW takes a to the algebra (Wa, δa). That brings us to the factor in the middle, η, at (Wa, δa). As shown above, this is the evaluator, in this case δa. Finally, the forgetful functor has nothing to forget, so we end up with δa. So, indeed, the δ obtained from the adjunction is the same as the δ of the original comonad W.
