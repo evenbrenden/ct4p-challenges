@@ -1,8 +1,8 @@
-We are going to define the adjunction of UW and FW, where W is a comonad and (a, f) is a W-coalgebra consisting of a carrier a and an coevaluator f (coherence conditions assumed).
+We are going to define the adjunction of UW and FW, where W is a comonad and (Wa, f) is a W-coalgebra consisting of a carrier a and an coevaluator f (coherence conditions assumed).
 
 The left adjoint UW is a forgetful functor that forgets coevaluation:
 
-UW :: (a, f) -> a
+UW :: (Wa, f) -> a
 
 Given a natural transformation δ that corresponds to the comonad duplicate, the right adjoint FW is a cofree functor that generates cofree W-coalgebras:
 
