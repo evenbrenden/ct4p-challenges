@@ -1,0 +1,16 @@
+digraph {
+  node [shape=plaintext]
+
+  a [label="a"]
+  WaTR [label="Wa"]
+  WaBL [label="Wa"]
+  WWa [label="W(Wa)"]
+
+  { rank=same WaBL a }
+  { rank=same WWa WaTR }
+
+  a -> WaTR [label="f"]
+  a -> WaBL [label="f"]
+  WaTR -> WWa [label="Wf"]
+  WaBL -> WWa [label="δa"]
+}
