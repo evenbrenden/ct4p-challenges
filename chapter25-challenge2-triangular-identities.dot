@@ -7,8 +7,8 @@ digraph {
 
   { rank=same WaL1 WWa1 }
 
-  WaL1 -> WWa1 [label="Wδa"]
-  WWa1 -> WaR1 [label="εa"]
+  WaL1 -> WWa1 [label="δa"]
+  WWa1 -> WaR1 [label="Wεa"]
   WaL1 -> WaR1 [label="" style=dashed arrowhead=none]
 
   aL2 [label="a"]
