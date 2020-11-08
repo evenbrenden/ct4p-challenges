@@ -1,23 +1,23 @@
 digraph {
   node [shape=plaintext]
 
-  TaL1 [label="Ta"]
-  TaR1 [label="Ta"]
-  aR1 [label="a"]
+  WaL1 [label="Wa"]
+  WaR1 [label="Wa"]
+  WWa1 [label="W(Wa)"]
 
-  { rank=same TaL1 aR1 }
+  { rank=same WaL1 WWa1 }
 
-  TaL1 -> aR1 [label="Tεa"]
-  aR1 -> TaR1 [label="f"]
-  TaL1 -> TaR1 [label="" style=dashed arrowhead=none]
+  WaL1 -> WWa1 [label="Wδa"]
+  WWa1 -> WaR1 [label="εa"]
+  WaL1 -> WaR1 [label="" style=dashed arrowhead=none]
 
   aL2 [label="a"]
   aR2 [label="a"]
-  TaR2 [label="Ta"]
+  Wa2 [label="Wa"]
 
-  { rank=same aL2 TaR2 }
+  { rank=same aL2 Wa2 }
 
-  aL2 -> TaR2 [label="δa"]
-  TaR2 -> aR2 [label="Tεa"]
+  aL2 -> Wa2 [label="f"]
+  Wa2 -> aR2 [label="εa"]
   aL2 -> aR2 [label="" style=dashed arrowhead=none]
 }
