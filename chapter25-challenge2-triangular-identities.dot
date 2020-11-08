@@ -1,0 +1,23 @@
+digraph {
+  node [shape=plaintext]
+
+  TaL1 [label="Ta"]
+  TaR1 [label="Ta"]
+  aR1 [label="a"]
+
+  { rank=same TaL1 aR1 }
+
+  TaL1 -> aR1 [label="Tεa"]
+  aR1 -> TaR1 [label="f"]
+  TaL1 -> TaR1 [label="" style=dashed arrowhead=none]
+
+  aL2 [label="a"]
+  aR2 [label="a"]
+  TaR2 [label="Ta"]
+
+  { rank=same aL2 TaR2 }
+
+  aL2 -> TaR2 [label="δa"]
+  TaR2 -> aR2 [label="Tεa"]
+  aL2 -> aR2 [label="" style=dashed arrowhead=none]
+}
