@@ -20,7 +20,7 @@ The counit is:
 
 We are going to calculate the component a of this transformation. On the left side of the morphism, the identity functor I gives us an a. On the right side, FW at a generates (Wa, δa), from which UW picks Wa. So ε is a morphism from Wa to a. This corresponds to the comonad extract natural transformation.
 
-To complete the definition of the adjunction between UW and FW, we also need to check the triangular identities. The first one is that δa * Wεa = idWa and the second one is that f * εa = ida (see attached diagram). These hold because of the the identity laws for the comonad W and the definition of the W-coalgebra (Wa, f), respectively.
+To complete the definition of the adjunction between UW and FW, we also need to check the triangular identities. The first one is that δa * Wεa = idWa and the second one is that f * εa = ida (see attached diagram). These hold because of the counit law for the comonad W and the definition of the W-coalgebra (Wa, f), respectively.
 
 Now let's see that this adjunction gives rise to a comonad via the endofunctor UW * FW. The action of FW on an a gives (Wa, δa), from which UW picks Wa. In other words, UWa * FWa is Wa, which means that UW * FW is W (a comonad).
 
