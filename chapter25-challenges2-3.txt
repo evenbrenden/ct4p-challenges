@@ -12,13 +12,13 @@ The unit is:
 
 η :: I -> FW * UW
 
-We are going to calculate the component at (Wa, f) of this transformation. On the left side of the morphism, UW takes the Wa out of (Wa, f), and FW generates (W(Wa), δa) from Wa. On the right side, the identity functor gives us (Wa, f). So η is a morphism from (Wa, f) to (W(Wa), δa), which is a homomorphism of W-coalgebras. Since Wf * f at a is W(Wa) and δ * f at a is also W(Wa) (see attached diagram), the component of the morphism η at (Wa, f) is f.
+We are going to calculate the component at (Wa, f) of this transformation. On the left side of the morphism, UW takes the Wa out of (Wa, f), and FW generates (W(Wa), δa) from Wa. On the right side, the identity functor gives us (Wa, f). So η :: (Wa, f) -> (W(Wa), δa), which is a homomorphism of W-coalgebras. Since Wf * f at a is W(Wa) and δ * f at a is also W(Wa) (see attached diagram), the component of η at (Wa, f) is f.
 
 The counit is:
 
 ε :: UW * FW -> I
 
-We are going to calculate the component a of this transformation. On the left side of the morphism, the identity functor I gives us an a. On the right side, FW at a generates (Wa, δa), from which UW picks Wa. So ε is a morphism from Wa to a. This corresponds to the comonad extract natural transformation.
+We are going to calculate the component a of this transformation. On the left side of the morphism, the identity functor I gives us an a. On the right side, FW at a generates (Wa, δa), from which UW picks Wa. So ε :: Wa -> a. This corresponds to the comonad extract natural transformation.
 
 To complete the definition of the adjunction between UW and FW, we also need to check the triangular identities. The first one is that δa * Wεa = idWa and the second one is that f * εa = ida (see attached diagram). These hold because of the counit law for the comonad W and the definition of the W-coalgebra (Wa, f), respectively.
 
