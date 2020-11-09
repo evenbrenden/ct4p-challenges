@@ -12,15 +12,15 @@ The unit is:
 
 η :: I -> FW * UW
 
-We want to calculate the component at (Wa, f) of this transformation. On the left side of the morphism, UW takes the Wa out of (Wa, f), and FW generates (W(Wa), δa) from Wa. On the right side, the identity functor gives us (Wa, f). So η :: (Wa, f) -> (W(Wa), δa), which is a homomorphism of W-coalgebras. Since Wf * f at a is W(Wa) and δ * f at a is also W(Wa) (see attached diagram), the component of η at (Wa, f) is f.
+We want to calculate the component at (Wa, f) of this transformation. On the right side of the morphism, UW takes the Wa out of (Wa, f), and FW generates (W(Wa), δa) from Wa. On the left side, the identity functor gives us (Wa, f). So η :: (Wa, f) -> (W(Wa), δa), which is a homomorphism of W-coalgebras. Since Wf * f at a is W(Wa) and δ * f at a is also W(Wa) (see attached diagram), the component of η at (Wa, f) is f.
 
 The counit is:
 
 ε :: UW * FW -> I
 
-We want to calculate the component a of this transformation. On the left side of the morphism, the identity functor I gives us an a. On the right side, FW at a generates (Wa, δa), from which UW picks Wa. So ε :: Wa -> a. This corresponds to the comonad extract natural transformation.
+We want to calculate the component a of this transformation. On the right side of the morphism, the identity functor I gives us an a. On the left side, FW at a generates (Wa, δa), from which UW picks Wa. So ε :: Wa -> a. This corresponds to the comonad extract natural transformation.
 
-To complete the definition of the adjunction between UW and FW, we also need to check the triangular identities. The first one (in components) is δa * Wεa = idWa (see attached diagram). Since δ = UW * η * FW, this triangle shows that applying the unit and then the counit brings us back to where we started. The second one (also in components) is f * εa = ida (see attached diagram). Since η at (Wa, f) is f, this triangle also shows that applying the unit and then the counit brings us back to where we started.
+To complete the definition of the adjunction between UW and FW, we also need to check the triangular identities. The first one (in components) is δa * Wεa = idWa (see attached diagram). Since δ = UW * η * FW (as shown below), this triangle shows that applying the unit and then the counit brings us back to where we started. The second one (also in components) is f * εa = ida (see attached diagram). Since η at (Wa, f) is the coevaluator f (as shown above), this triangle also shows that applying the unit and then the counit brings us back to where we started.
 
 Now let's see that this adjunction gives rise to a comonad via the endofunctor UW * FW. The action of FW on an a gives (Wa, δa), from which UW picks Wa. In other words, UWa * FWa is Wa, which means that UW * FW is W (a comonad).
 
@@ -28,4 +28,4 @@ Following the template of section 25.1, we have that the unit of the adjunction 
 
 δ = UW * η * FW
 
-We want to calculate the component of δ at a. FW takes a to the algebra (Wa, δa). That brings us to the factor in the middle, η, at (Wa, δa). As shown above, this is the evaluator, in this case δa. Finally, the forgetful functor has nothing to forget, so we end up with δa. So, indeed, the δ obtained from the adjunction is the same as the δ of the original comonad W.
+We want to calculate the component of δ at a. FW takes a to the algebra (Wa, δa). That brings us to the factor in the middle, η, at (Wa, δa). As shown above, this is the coevaluator, in this case δa. Finally, the forgetful functor has nothing to forget, so we end up with δa. So, indeed, the δ obtained from the adjunction is the same as the δ of the original comonad W.
