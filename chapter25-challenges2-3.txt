@@ -12,7 +12,7 @@ The unit is:
 
 η :: I -> FW * UW
 
-We want to calculate the component at (Wa, f) of this transformation. On the right side of the morphism, UW takes the Wa out of (Wa, f), and FW generates (W(Wa), δWa) from Wa. On the left side, the identity functor gives us (Wa, f). So η :: (Wa, f) -> (W(Wa), δWa), which is a homomorphism of W-coalgebras. Since Wf * f at a is W(Wa) and δ * f at a is also W(Wa) (see diagram), the component of η at (Wa, f) is f.
+We want to calculate the component at (Wa, f) of this transformation. On the right side of the morphism, UW takes the Wa out of (Wa, f), and FW generates (W(Wa), δa) from Wa. On the left side, the identity functor gives us (Wa, f). So η :: (Wa, f) -> (W(Wa), δa), which is a homomorphism of W-coalgebras. Since Wf * f at a is W(Wa) and δ * f at a is also W(Wa) (see diagram), the component of η at (Wa, f) is f.
 
 The counit is:
 
