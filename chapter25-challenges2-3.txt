@@ -28,4 +28,4 @@ Following the template of section 25.1, we have that the unit of the adjunction 
 
 δ = UW * η * FW
 
-We want to calculate the component of δ at a. FW takes a to the algebra (Wa, δa). That brings us to the factor in the middle, η, at (Wa, δa). As shown above, this is the coevaluator, in this case δa. Finally, the forgetful functor has nothing to forget, so we end up with δa. So, indeed, the δ obtained from the adjunction is the same as the δ of the original comonad W.
+We want to calculate the component of δ at a. The cofree functor FW takes a to the algebra (Wa, δa). That brings us to the factor in the middle, η, at (Wa, δa). As shown above, this is the coevaluator, in this case δa. Finally, the forgetful functor UW has nothing to forget, so we end up with δa. This shows that the δ obtained from the adjunction is the same as the δ of the original comonad W.
