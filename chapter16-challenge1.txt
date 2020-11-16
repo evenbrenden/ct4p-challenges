@@ -1,9 +1,0 @@
-Co-Yoneda embedding can be represented as:
-
-(x -> a) -> (x -> b) ≅ a -> b
-
-fromY :: (x -> a) -> x -> b
-fromY f x = atob (f x)
-
-fromY :: a -> b
-fromY id = atob
