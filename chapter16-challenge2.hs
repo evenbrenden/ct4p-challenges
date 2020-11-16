@@ -9,10 +9,12 @@ btoa:: b -> a
 btoa = fromY id
 
 fromY:: (a -> x) -> b -> x
-fromY f b = f (btoa b)
+fromY f b = f . btoa $ b
 
-forward':: (b -> a) -> ((a -> x) -> (b -> x))
-forward' btoa' = (\f -> f . btoa')
+forward:: (b -> a) -> ((a -> x) -> (b -> x))
+forward btoa' = \f -> f . btoa'
 
-backward' :: (forall x. (a -> x) -> (b -> x)) -> (b -> a)
-backward' aToxToBtox = aToxToBtox id
+backward :: forall a b. (forall x. (a -> x) -> (b -> x)) -> (b -> a)
+backward fromY' = fromY' id
+
+-- We can go from btoa to fromY and back => these mappings are the inverse of each other
