@@ -1,3 +1,8 @@
+#! /usr/bin/env nix-shell
+#! nix-shell -p ghcid
+#! nix-shell -p ghc
+#! nix-shell -i "ghcid -c 'ghci -Wall'"
+
 -- AND monoid
 newtype BoolConj =
   BoolConj Bool
@@ -24,6 +29,3 @@ instance Semigroup BoolDisj where
 
 instance Monoid BoolDisj where
   mempty = BoolDisj False
-
-main :: IO ()
-main = return ()

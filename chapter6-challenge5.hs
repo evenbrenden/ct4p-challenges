@@ -1,3 +1,8 @@
+#! /usr/bin/env nix-shell
+#! nix-shell -p ghcid
+#! nix-shell -p ghc
+#! nix-shell -i "ghcid -c 'ghci -Wall'"
+
 -- Numbers         Types
 -- 2 = 1 + 1       data Bool = True | False
 -- a * b           (a, b)
@@ -5,9 +10,9 @@
 -- 2 * a           (Bool, a)
 
 iso5 :: Either a a -> (Bool, a)
-iso5 (Left a) -> (True, a)
-iso5 (Right a) -> (False, a)
+iso5 (Left a) = (True, a)
+iso5 (Right a) = (False, a)
 
 inv5 :: (Bool, a) -> Either a a
-inv5 (True, a) -> Left a
-inv5 (False, a) -> Right a
+inv5 (True, a) = Left a
+inv5 (False, a) = Right a

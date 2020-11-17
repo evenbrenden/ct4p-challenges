@@ -1,3 +1,8 @@
+#! /usr/bin/env nix-shell
+#! nix-shell -p ghcid
+#! nix-shell -p ghc
+#! nix-shell -i "ghcid -c 'ghci -Wall' -T main"
+
 {-# LANGUAGE TypeFamilies #-}
 
 class Representable f where
@@ -21,6 +26,7 @@ memo = tabulate square
 memoSquares :: [Int]
 memoSquares = fmap (index memo) [1..4]
 
+main :: IO ()
 main = do
   putStrLn $ show memoSquares
   return ()

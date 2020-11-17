@@ -5,16 +5,16 @@
 
 {-# LANGUAGE RankNTypes #-}
 
-btoa:: b -> a
+btoa :: b -> a
 btoa = fromY id
 
-fromY:: (a -> x) -> b -> x
+fromY :: (a -> x) -> b -> x
 fromY f b = f . btoa $ b
 
-forward:: (b -> a) -> ((a -> x) -> (b -> x))
-forward btoa' = \f -> f . btoa'
+btoa2FromY :: (b -> a) -> ((a -> x) -> (b -> x))
+btoa2FromY btoa' = \f -> f . btoa'
 
-backward :: forall a b. (forall x. (a -> x) -> (b -> x)) -> (b -> a)
-backward fromY' = fromY' id
+fromYToBtoa :: forall a b. (forall x. (a -> x) -> (b -> x)) -> (b -> a)
+fromYToBtoa fromY' = fromY' id
 
 -- We can go from btoa to fromY and back => these mappings are the inverse of each other
