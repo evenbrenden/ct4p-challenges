@@ -87,8 +87,8 @@ toString window (Store sa _) =
 
 main :: IO ()
 main = do
-  let printWindow = 5 -- Print a 3x3 grid
-  let numIterations = 10 -- Print 3 iterations
+  let printWindow = 5 -- Print an NxN grid
+  let numIterations = 4 -- Evaluate N iterations
   let seed = makeGrid [(1, 2), (2, 2), (3, 2)] -- "Blinker" seed
   let iterations = take numIterations $ makeIterations step seed
   let printables = toString printWindow <$> iterations
