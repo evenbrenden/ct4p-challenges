@@ -89,7 +89,7 @@
 <title>GaGb&#45;&gt;GaGb</title>
 <path fill="none" stroke="black" d="M128.53,-80.78C126.52,-90.31 130.47,-99 140.4,-99 146.44,-99 150.28,-95.77 151.89,-91.1"/>
 <polygon fill="black" stroke="black" points="155.4,-90.9 152.26,-80.78 148.4,-90.65 155.4,-90.9"/>
-<text text-anchor="middle" x="103.52" y="-84.64" font-family="Times-Roman" font-size="14.00">Gf = id</text>
+<text text-anchor="middle" x="94.02" y="-84.64" font-family="Times-Roman" font-size="14.00">Gf = idGa</text>
 </g>
 <!-- Fb&#45;&gt;GaGb -->
 <g id="edge8" class="edge">

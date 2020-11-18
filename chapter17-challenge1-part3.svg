@@ -82,7 +82,7 @@
 <title>FaGa&#45;&gt;FaGa</title>
 <path fill="none" stroke="black" d="M125.64,-152.78C123.69,-162.31 127.52,-171 137.15,-171 143.01,-171 146.73,-167.77 148.29,-163.1"/>
 <polygon fill="black" stroke="black" points="151.8,-162.9 148.65,-152.78 144.8,-162.65 151.8,-162.9"/>
-<text text-anchor="middle" x="137.15" y="-174.8" font-family="Times-Roman" font-size="14.00">αa = id</text>
+<text text-anchor="middle" x="137.15" y="-174.8" font-family="Times-Roman" font-size="14.00">αa = ida</text>
 </g>
 <!-- FaGa&#45;&gt;Fb -->
 <g id="edge7" class="edge">

@@ -12,7 +12,7 @@ digraph {
   a -> a [label="f = id"]
   a -> Fa
   a -> Ga
-  Fa -> Fa [label="Ff = id" color="red"]
-  Ga -> Ga [label="Gf = id" color="yellow"]
+  Fa -> Fa [label="Ff = idFa" color="red"]
+  Ga -> Ga [label="Gf = idGa" color="yellow"]
   Fa -> Ga [xlabel="αa" color="orange"]
 }
