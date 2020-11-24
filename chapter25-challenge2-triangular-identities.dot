@@ -1,18 +1,6 @@
 digraph {
   node [shape=plaintext]
 
-  WaL1 [label="Wa"]
-  WaR1 [label="Wa"]
-  WWa1 [label="W(Wa)"]
-  dummy1 [style=invis]
-
-  { rank=same WaL1 WWa1 }
-
-  WaL1 -> WWa1 [label="δa"]
-  WWa1 -> WaR1 [label="Wεa"]
-  WaL1 -> WaR1 [label="" color="black:black" arrowhead=none]
-  WaL1 -> dummy1 [style=invis]
-
   aL2 [label="a"]
   aR2 [label="a"]
   Wa2 [label="Wa"]
@@ -24,4 +12,16 @@ digraph {
   Wa2 -> aR2 [label="εa"]
   aL2 -> aR2 [label="" color="black:black" arrowhead=none]
   aL2 -> dummy2 [style=invis]
+
+  WaL1 [label="Wa"]
+  WaR1 [label="Wa"]
+  WWa1 [label="W(Wa)"]
+  dummy1 [style=invis]
+
+  { rank=same WaL1 WWa1 }
+
+  WaL1 -> WWa1 [label="δa"]
+  WWa1 -> WaR1 [label="Wεa"]
+  WaL1 -> WaR1 [label="" color="black:black" arrowhead=none]
+  WaL1 -> dummy1 [style=invis]
 }
