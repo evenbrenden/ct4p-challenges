@@ -1,54 +1,19 @@
-(Pretty much a straight lift from http://danshiebler.com/2018-11-10-category-solutions/)
+F :: d -> C(Ld, c)
+G :: d -> D(d, Rc)
 
-Consider two functors from C to Set:
-
-d -> C(Ld, c)
-d -> D(d, Rc)
-
-ψ is a natural transformation between these two. We want to prove that:
-
-Ff * ψgx = ψgy * Gf
-
-Where:
-
-* ψ is a natural transformation from G to F (conversely, φ is a natural transformation from F to G)
-* gx and gy are components of ψ (not single objects but a function, since we are going between hom-sets)
-* f is a function :: x -> y (not a single object but a function, since we are going between hom-sets)
-* F and G must be endofunctors from C to C and D to D, respectively (in order to compose with ψ)
-
-Since we are precomposing f with F and G, Ff and Gf must be:
+ψ :: G -> F
+f :: x -> y
 
 Ff :: C(Lx, c) -> C(Ly, c)
 Gf :: D(x, Rc) -> D(y, Rc)
 
-Which means that ψgx and ψgy must be:
+Ψx :: D(x, Rc) -> C(Lx, c)
+Ψy :: D(y, Rc) -> C(Ly, c)
 
-ψgx :: D(x, Rc) -> C(Lx, c)
-ψgy :: D(y, Rc) -> D(Ly, c)
+Ff * ψx :: C(Lx, c) -> C(Ly, c) * D(x, Rc) -> C(Lx, c)
+Ff * ψx :: D(x, Rc) -> C(Ly, c)
 
-And gx and gy must be:
+ψy * Gf :: D(y, Rc) -> C(Ly, c) * D(x, Rc) -> D(y, Rc)
+ψy * Gf :: D(x, Rc) -> C(Ly, c)
 
-gx :: x -> Rc
-gy :: y -> Rc
-
-Now we are ready to prove Ff * ψgx = ψgy * Gf. Right hand side:
-
-  ψgy * Gf
-  ψgy * Gf Gx    // Precompose with Gx (the trick)
-= ψgy * Gy       // "Apply" Gx to Gf
-= ψgy * D(y, Rc) // Target of Gy is D(y, Rc)
-= C(Ly, c)       // "Apply" D(y, Rc) to ψgy
-
-Left hand side:
-
-  Ff * ψgx
-  Ff * ψgx Gx    // Precompose with Gx (the trick)
-= Ff * Fx        // "Apply" Gx to ψgx
-= Fy             // "Apply" Fx to Ff
-= C(Ly, c)       // Target of Fy is C(Ly, c)
-
-All together:
-
-Ff * ψgx Gx = C(Ly, c) = ψgy * Gf Gx   // Left versus right hand side
-Ff * ψgx Gf Gx Gx-1 = ψgy * Gf Gx Gx-1 // Precompose with Gx-1
-ψgy * Gf = Ff * ψgx Gf                 // Gf Gf-1 is identity
+Ff * ψx = ψy * Gf
