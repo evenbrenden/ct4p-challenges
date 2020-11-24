@@ -1,19 +1,19 @@
 F :: d -> C(Ld, c)
 G :: d -> D(d, Rc)
 
-ψ :: G -> F
+ψ :: F -> G
 f :: x -> y
 
 Ff :: C(Lx, c) -> C(Ly, c)
 Gf :: D(x, Rc) -> D(y, Rc)
 
-Ψx :: D(x, Rc) -> C(Lx, c)
-Ψy :: D(y, Rc) -> C(Ly, c)
+ψx :: C(Lx, c) -> D(x, Rc)
+ψy :: C(Ly, c) -> D(y, Rc)
 
-Ff * ψx :: C(Lx, c) -> C(Ly, c) * D(x, Rc) -> C(Lx, c)
-Ff * ψx :: D(x, Rc) -> C(Ly, c)
+Gf * ψx :: D(x, Rc) -> D(y, Rc) * C(Lx, c) -> D(x, Rc)
+Gf * ψx :: C(Lx, c) -> D(y, Rc)
 
-ψy * Gf :: D(y, Rc) -> C(Ly, c) * D(x, Rc) -> D(y, Rc)
-ψy * Gf :: D(x, Rc) -> C(Ly, c)
+ψy * Ff :: C(Ly, c) -> D(y, Rc) * C(Lx, c) -> C(Ly, c)
+ψy * Ff :: C(Lx, c) -> D(y, Rc)
 
-Ff * ψx = ψy * Gf
+Gf * ψx = ψy * Ff
