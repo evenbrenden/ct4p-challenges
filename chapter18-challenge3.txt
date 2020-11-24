@@ -8,6 +8,6 @@ Pick an arbitrary morphism g in D(d, Rc). We want to define a ψ that, acting on
 
 There isn’t really much choice. One thing we can try is to lift g using L. That will produce a morphism Lg from Ld to L(Rc) - a morphism that's an element of C(Ld, (L * R)c).
 
-What we need for a component of ψ, is a morphism from Ld to c. That’s not a problem, since we can use a component of εc to get from Ld to (L * R)c. We get:
+What we need for a component of ψ, is a morphism from Ld to c. That’s not a problem, since we can use a component of εc to get from (L * R)c to c. We get:
 
-ψg = Rg * εc
+ψg = εc * Lg
