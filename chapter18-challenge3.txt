@@ -1,8 +1,8 @@
-The first definition: C(Ld, c) ≅ D(d, Rc) => existence of η and ε (shown in book + challenge 2)
+The first definition: C(Ld, c) ≅ D(d, Rc) => existence of η and ε (shown in book + challenge 2).
 
 The second definition: Existence of η and ε => existence of φ :: (c -> C(Ld, c)) -> (c -> D(d, Rc)) (shown in book) (and its inverse φ-1) and ψ :: (d -> D(d, Rc)) -> (d -> C(Ld, c)) (and its inverse ψ-1).
 
-So the challenge is to show the existence of φ-1 :: D(d, Rc) -> C(Ld, c) as well as ψ and ψ-1.
+So the challenge is to show the existence of φ-1 :: (c -> D(d, Rc)) -> (c -> C(Ld, c)) as well as ψ and ψ-1.
 
 φ-1: Pick an arbitrary morphism g in D(d, Rc). We want to define a φ-1 that, acting on g, produces a morphism in C(Ld, c).
 
