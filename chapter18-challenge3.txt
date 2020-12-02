@@ -1,13 +1,15 @@
 The first definition: C(Ld, c) ≅ D(d, Rc) => existence of η and ε (shown in book + challenge 2)
 
-The second definition: Existence of η and ε => existence of φ :: C(Ld, c) -> D(d, Rc) (shown in book) and ψ :: D(d, Rc) -> C(Ld, c) (the missing piece).
+The second definition: Existence of η and ε => existence of φ :: (c -> C(Ld, c)) -> (c -> D(d, Rc)) (shown in book) (and its inverse φ-1) and ψ :: (d -> D(d, Rc)) -> (d -> C(Ld, c)) (and its inverse ψ-1).
 
-So the challenge is to show that existence of ε => existence of ψ.
+So the challenge is to show the existence of φ-1 :: D(d, Rc) -> C(Ld, c) as well as ψ and ψ-1.
 
-Pick an arbitrary morphism g in D(d, Rc). We want to define a ψ that, acting on g, produces a morphism in C(Ld, c).
+φ-1: Pick an arbitrary morphism g in D(d, Rc). We want to define a φ-1 that, acting on g, produces a morphism in C(Ld, c).
 
 There isn’t really much choice. One thing we can try is to lift g using L. That will produce a morphism Lg from Ld to L(Rc) - a morphism that's an element of C(Ld, (L * R)c).
 
-What we need for a component of ψ, is a morphism from Ld to c. That’s not a problem, since we can use a component of εc to get from (L * R)c to c. We get:
+What we need for a component of φ-1, is a morphism from Ld to c. That’s not a problem, since we can use a component of εc to get from (L * R)c to c. We get:
 
-ψg = εc * Lg
+φ-1g = εc * Lg
+
+The derivation of ψ and ψ-1 "(...) is analogous, (...)".
