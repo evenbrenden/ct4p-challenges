@@ -1,3 +1,8 @@
+-- Definition by natural isomorphism (also inspired by
+-- http://danshiebler.com/2018-11-10-category-solutions/). Alternatively (and
+-- maybe how the challenge is meant to be solved), one could declare and
+-- implement an Adjunction instance with the two types.
+
 #! /usr/bin/env nix-shell
 #! nix-shell -p ghcid
 #! nix-shell -p ghc
