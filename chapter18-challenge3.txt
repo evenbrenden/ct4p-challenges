@@ -4,12 +4,12 @@ The second definition: Existence of η and ε => existence of φ :: (c -> C(Ld, 
 
 So the challenge is to show the existence of φ-1 :: (c -> D(d, Rc)) -> (c -> C(Ld, c)) as well as ψ and ψ-1.
 
-φ-1: Pick an arbitrary morphism g in D(d, Rc). We want to define a φ-1 that, acting on g, produces a morphism in C(Ld, c).
+ψ: Pick an arbitrary morphism g in D(d, Rc). We want to define a ψ that, acting on g, produces a morphism in C(Ld, c).
 
 There isn’t really much choice. One thing we can try is to lift g using L. That will produce a morphism Lg from Ld to L(Rc) - a morphism that's an element of C(Ld, (L * R)c).
 
-What we need for a component of φ-1, is a morphism from Ld to c. That’s not a problem, since we can use a component of εc to get from (L * R)c to c. We get:
+What we need for a component of ψ, is a morphism from Ld to c. That’s not a problem, since we can use a component of εc to get from (L * R)c to c. We get:
 
-φ-1g = εc * Lg
+ψg = εc * Lg
 
-According to the Haskell Adjunction typeclass, it looks like leftAdjunct . rightAdjunct = id = φ . ψ and rightAdjunct . leftAdjunct = id = ψ . φ, which is another way of saying that ψ = φ-1 and φ = ψ-1. Which is way of saying that we're done.
+The Haskell Adjunction typeclass suggests that leftAdjunct . rightAdjunct = id = φ . ψ and rightAdjunct . leftAdjunct = id = ψ . φ, which is another way of saying that ψ = φ-1 and φ = ψ-1. Which is way of saying that we're done.
