@@ -12,4 +12,4 @@ What we need for a component of φ-1, is a morphism from Ld to c. That’s not a
 
 φ-1g = εc * Lg
 
-The derivation of ψ and ψ-1 "(...) is analogous, (...)".
+According to the Haskell Adjunction typeclass, it looks like leftAdjunct . rightAdjunct = id = φ . ψ and rightAdjunct . leftAdjunct = id = ψ . φ, which is another way of saying that ψ = φ-1 and φ = ψ-1. Which is way of saying that we're done.
