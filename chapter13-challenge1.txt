@@ -1,3 +1,5 @@
+(Pretty much lifted straight from http://danshiebler.com/2018-11-10-category-solutions/)
+
 Consider two isomorphic monoids M and N that have isomorphisms f and g between them:
 
 f :: M -> N
