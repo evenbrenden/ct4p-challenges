@@ -1,0 +1,33 @@
+We have:
+
+f = a -> b = C(a, b) // Definition of endo-1-cell
+id_a = a -> a = C(a, a) // Identity endo-1-cell
+C(a, b) ⊗ C(b, c) = C(a, b) ∘ C(b, c) // Tensor product defined as composition of endo-1-cells in a bicategory
+
+And a relaxed set of monoidal laws in terms of:
+
+p = f ∘ id_a -> f // Invertible 2-cell
+q = id_a ∘ f -> f // Invertible 2-cell
+r = (f ∘ g) ∘ h -> f ∘ (g ∘ h) // Invertible 2-cell
+
+Left identity:
+
+C(a, a) ⊗ C(a, b) =
+id_a ∘ f =
+f =
+C(a, b)
+
+Right identity:
+
+C(a, b) ⊗ C(b, b) =
+f ∘ id_b =
+f =
+C(a, b)
+
+Associativity:
+
+(C(a, b) ⊗ C(b, c)) ⊗ C(c, d) =
+(f ∘ g) ∘ h =
+f ∘ (g ∘ h) =
+C(a, b) ⊗ (C(b, c) ⊗ C(c, d))
+
