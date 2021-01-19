@@ -1,0 +1,25 @@
+(One last look at http://danshiebler.com/2018-11-10-category-solutions/, what would I have done without it?)
+
+Given a monad T over an object a, a monad algebra is an algebra over T with a morphism alg :: Ta -> a that satisfies the coherence conditions.
+
+For a monad in Span, we have:
+
+* dom ∘ η = id
+* cod ∘ η = id
+
+Since η :: a -> Ta, dom or cod are both candidates for alg. Let's use dom.
+
+First coherence condition:
+
+alg . η =
+id =
+dom . η // Definition of η
+
+Second coherence condition:
+
+alg . μ_a $ (a1, a2) = // Apply a pairs of arrows (a1, a2)
+dom . μ_a $ (a1, a2) = // alg = dom
+dom a3 = // Definition of μ (using a3 as the apex of (a1, a2))
+a1 = // a1 is the domain of a3
+dom . T dom $ (a1, a2) = // dom . T dom :: T(Ta) -> a = fst
+alg . T alg $ (a1, a2) // dom = alg
