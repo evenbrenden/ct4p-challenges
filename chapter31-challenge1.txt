@@ -1,6 +1,6 @@
 We have:
 
-f = a -> b = C(a, b) // Definition of endo-1-cell
+f = a -> b = C(a, b) // Definition of a 1-cell
 id_a = a -> a = C(a, a) // Identity endo-1-cell
 C(a, a) ⊗ C(a, a) = C(a, a) // Tensor product defined as composition of endo-1-cells in a bicategory
 
@@ -12,14 +12,14 @@ r = (C(a, a) ⊗ C(a, a)) ⊗ C(a, a) -> C(a, a) ⊗ (C(a, a) ⊗ C(a, a)) // In
 
 Left identity:
 
-C(a, a) ⊗ C(a, b) =
+C(a, a) ∘ C(a, b) =
 id_a ∘ f =
 f = // By isomorphism
 C(a, b)
 
 Right identity:
 
-C(a, b) ⊗ C(b, b) =
+C(a, b) ∘ C(b, b) =
 f ∘ id_b =
 f = // By isomorphism
 C(a, b)
