@@ -7,16 +7,16 @@ For a monad in Span, we have:
 * dom ∘ η = id
 * cod ∘ η = id
 
-Since η :: a -> Ta, dom or cod are both candidates for alg. Let's use dom.
+Since η :: a -> Ta, dom or cod are both candidates for alg. Let's use cod.
 
 First coherence condition:
 
 alg . η =
 id =
-dom . η // Definition of η
+cod . η // Definition of η
 
 Second coherence condition:
 
-dom . μ_a (a1, a2) =
-dom a1 = // Domain of two composed arrows is the domain of the first of them
-dom . T dom (a1, a2) // Lifted domain function picks the left arrow of a pair
+cod . μ_a (a1, a2) =
+cod a2 = // The codomain (output) of a2 . a1 is the codomain (output) of a2
+cod . T cod (a1, a2) // IDK
