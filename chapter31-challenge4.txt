@@ -1,5 +1,6 @@
 (One last look at http://danshiebler.com/2018-11-10-category-solutions/, what would I have done without it?)
 
+
 Given a monad T over an object a, a monad algebra is an algebra over T with a morphism alg :: Ta -> a that satisfies the coherence conditions.
 
 For a monad in Span, we have:
@@ -9,14 +10,26 @@ For a monad in Span, we have:
 
 Since η :: a -> Ta, dom or cod are both candidates for alg. Let's use cod.
 
+
 First coherence condition:
 
 alg . η =
 id =
 cod . η // Definition of η
 
+
 Second coherence condition:
 
+Given a pair of composable arrows (a1, a2), we want to show that:
+
+cod . μ_a (a1, a2) = cod . T cod (a1, a2)
+
+Left hand side: The composition of a1 and a2 is an arrow a3 = a1 ⊗ a2, where dom a3 = dom a1 and cod a3 = cod a2. If we switch ⊗ with . and reverse the arguments, this can be seen as regular composition where the input of a2 . a1 is the input of a1 and the output of a2 . a1 is the output of a2. Therefore, cod . μ_a (a1, a2) = cod a2.
+
+Right hand side: T cod :: T^2 -> T is a 2-cell that takes a pair of arrows. Since both arrows are 1-cells of the same type, the T functor applies cod to both of them. This results in a pair of objects (cod a1, cod a2). Since we are in the category T, (cod a1, cod a2) is lifted up to an arrow. This arrow must be the apex of cod a1 and cod a2. Since a1 and a2 are composable, cod a1 = dom a2, and the arrow must be the apex of dom a2 and cod a2. That's a2. In sum, T cod (a1, a2) = a2.
+
+Putting it all together:
+
 cod . μ_a (a1, a2) =
-cod a2 = // The codomain (output) of a2 . a1 is the codomain (output) of a2
-cod . T cod (a1, a2) // IDK
+cod a2 =
+cod . T cod (a1, a2)
