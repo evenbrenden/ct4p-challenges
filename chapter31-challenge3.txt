@@ -1,6 +1,6 @@
 (Just trying to wrap my head around the solution in http://danshiebler.com/2018-11-10-category-solutions/)
 
-In Prof, the bicategory in which profunctors are 1-cells, a monad is an endo-profunctor T :: Cop x C -> Set. The type signature follows from the definition of a profunctor and the fact that this is an _endo_-profunctor. This is the hom-functor.
+In Prof, the bicategory in which profunctors are 1-cells, a monad is an endo-profunctor T :: Cop x C -> Set (the hom-functor). The type signature follows from the definition of a profunctor and the fact that this is an _endo_-profunctor.
 
 The composition of any profunctors p and q is defined in terms of a coend:
 
