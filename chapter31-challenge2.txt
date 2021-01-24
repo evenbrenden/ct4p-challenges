@@ -1,0 +1,20 @@
+For identity, we want to show that the composition of an arrow a1 with an identity arrow ai is equal to a1. We can check equality by assessing that the domain and codomain is unchanged after composition.
+
+We have:
+
+* dom a1 = o1
+* cod a1 = o2
+* ai = η o1
+* dom ai = cod ai = o1
+
+Arrow composition is like regular function composition in that the resulting arrow must have the domain of the first arrow and the codomain of the second arrow. Therefore:
+
+dom μ (a1, ai) = dom a1
+
+Since a1 and ai are composable, dom ai = cod a1. Therefore:
+
+cod μ (a1, ai) = cod a1
+
+For associativity, just like regular function composition is associative, so is arrow composition. For any arrows a1, a2 and a3, where cod a1 = dom a2 and cod a2 = dom a2:
+
+μ (a1, μ (a2, a3)) = μ (μ (a1, a2), a3)
