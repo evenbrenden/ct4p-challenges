@@ -5,27 +5,27 @@ fmap f (Cons x t) = Cons (f x) (fmap f t)
 
 Preserves identity:
 
-fmap id Nil
-= Nil
-= id Nil
+fmap id Nil =
+Nil =
+id Nil
 
-fmap id (Cons x t)
-= Cons (id x) (fmap id t)
-= Cons (x) (t) -- By induction
-= Cons (x t)
-= id (Cons x t)
+fmap id (Cons x t) =
+Cons (id x) (fmap id t) =
+Cons (x) (t) -- By induction =
+Cons (x t) =
+id (Cons x t)
 
 Preserves composition:
 
-fmap (f . g) Nil
-= Nil
-= fmap g Nil
-= fmap f (fmap g Nil)
-= fmap f Nil . fmap g Nil
+fmap (f . g) Nil =
+Nil =
+fmap g Nil =
+fmap f (fmap g Nil) =
+fmap f Nil . fmap g Nil
 
-fmap (f . g) (Cons x t)
-= Cons ((f . g) x) (fmap (f . g) t)
-= Cons ((f . g) x) (fmap f . fmap g $ t) -- By induction
-= fmap f (Cons (g x) (fmap g t)) -- By definition of fmap
-= fmap f (fmap g (Cons x t)) -- By definition of fmap
-= fmap f (Cons x t) . fmap g (Cons x t)
+fmap (f . g) (Cons x t) =
+Cons ((f . g) x) (fmap (f . g) t) =
+Cons ((f . g) x) (fmap f . fmap g $ t) -- By induction =
+fmap f (Cons (g x) (fmap g t)) -- By definition of fmap =
+fmap f (fmap g (Cons x t)) -- By definition of fmap =
+fmap f (Cons x t) . fmap g (Cons x t)
