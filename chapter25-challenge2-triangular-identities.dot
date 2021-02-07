@@ -3,25 +3,25 @@ digraph {
 
   aL2 [label="a"]
   aR2 [label="a"]
-  Wa2 [label="Wa"]
+  Wa2 [label="W a"]
   dummy2 [style=invis]
 
   { rank=same aL2 Wa2 }
 
   aL2 -> Wa2 [label="f"]
-  Wa2 -> aR2 [label="εa"]
+  Wa2 -> aR2 [label="ε_a"]
   aL2 -> aR2 [label="" color="black:black" arrowhead=none]
   aL2 -> dummy2 [style=invis]
 
-  WaL1 [label="Wa"]
-  WaR1 [label="Wa"]
-  WWa1 [label="W(Wa)"]
+  WaL1 [label="W a"]
+  WaR1 [label="W a"]
+  WWa1 [label="W(W a)"]
   dummy1 [style=invis]
 
   { rank=same WaL1 WWa1 }
 
-  WaL1 -> WWa1 [label="δa"]
-  WWa1 -> WaR1 [label="Wεa"]
+  WaL1 -> WWa1 [label="δ_a"]
+  WWa1 -> WaR1 [label="W ε_a"]
   WaL1 -> WaR1 [label="" color="black:black" arrowhead=none]
   WaL1 -> dummy1 [style=invis]
 }

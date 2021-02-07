@@ -8,8 +8,8 @@ So the challenge is to show the existence of φ-1 :: (c -> D(d, Rc)) -> (c -> C(
 
 There isn’t really much choice. One thing we can try is to lift g using L. That will produce a morphism Lg from Ld to L(Rc) - a morphism that's an element of C(Ld, (L * R)c).
 
-What we need for a component of ψ, is a morphism from Ld to c. That’s not a problem, since we can use a component of εc to get from (L * R)c to c. We get:
+What we need for a component of ψ, is a morphism from Ld to c. That’s not a problem, since we can use a component of ε_c to get from (L * R)c to c. We get:
 
-ψg = εc * Lg
+ψ_g = ε_c * Lg
 
 The Haskell Adjunction typeclass suggests that leftAdjunct . rightAdjunct = id = φ . ψ and rightAdjunct . leftAdjunct = id = ψ . φ, which is another way of saying that ψ = φ-1 and φ = ψ-1. Which is way of saying that we're done.

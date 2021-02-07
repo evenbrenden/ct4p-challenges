@@ -16,8 +16,8 @@ digraph {
   b -> Fb
   a -> GaGb
   b -> GaGb
-  GaGb -> GaGb [xlabel="Gf = idGa"]
+  GaGb -> GaGb [xlabel="Gf = id_Ga"]
   Fa -> Fb [label="Ff" color="red"]
-  Fb -> GaGb [label="αb" color="red"]
-  Fa -> GaGb [label="αa" color="yellow"]
+  Fb -> GaGb [label="α_b" color="red"]
+  Fa -> GaGb [label="α_a" color="yellow"]
 }

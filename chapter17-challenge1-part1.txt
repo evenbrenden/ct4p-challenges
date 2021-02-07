@@ -1,3 +1,3 @@
-Gf ∘ αa = αb ∘ Ff
-Gf ∘ αa = αb ∘ idFa
-Gf ∘ αa = αb
+Gf ∘ α_a = α_b ∘ Ff
+Gf ∘ α_a = α_b ∘ id_Fa
+Gf ∘ α_a = α_b

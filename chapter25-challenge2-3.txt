@@ -1,33 +1,33 @@
-We want to define the adjunction of UW and FW, where W is a comonad and (a, f) is a W-coalgebra consisting of a carrier a and a coevaluator f (coherence conditions assumed).
+We want to define the adjunction of U^W and F^W, where W is a comonad and (a, f) is a W-coalgebra consisting of a carrier a and a coevaluator f (coherence conditions assumed).
 
-The left adjoint UW is a forgetful functor that forgets coevaluation:
+The left adjoint U^W is a forgetful functor that forgets coevaluation:
 
-UW :: (a, f) -> a
+U^W :: (a, f) -> a
 
-Given a natural transformation δ that corresponds to the comonad duplicate, the right adjoint FW is a cofree functor that generates cofree W-coalgebras:
+Given a natural transformation δ that corresponds to the comonad duplicate, the right adjoint F^W is a cofree functor that generates cofree W-coalgebras:
 
-FW :: a -> (Wa, δa)
+F^W :: a -> (W a, δ_a)
 
 The unit is:
 
-η :: I -> FW * UW
+η :: I -> F^W * U^W
 
-We want to calculate the component at (a, f) of this transformation. On the right side of the morphism, UW takes the a out of (a, f), and FW generates (Wa, δa) from a. On the left side, the identity functor gives us (a, f). So η :: (a, f) -> (Wa, δa), which is a homomorphism of W-coalgebras. Since Wf * f at a is W(Wa) and δ * f at a is also W(Wa) (see diagram), the component of η at (Wa, f) is f.
+We want to calculate the component at (a, f) of this transformation. On the right side of the morphism, U^W takes the a out of (a, f), and F^W generates (W a, δ_a) from a. On the left side, the identity functor gives us (a, f). So η :: (a, f) -> (W a, δ_a), which is a homomorphism of W-coalgebras. Since W f * f at a is W(W a) and δ * f at a is also W(W a) (see diagram), the component of η at (W a, f) is f.
 
 The counit is:
 
-ε :: UW * FW -> I
+ε :: U^W * F^W -> I
 
-We want to calculate the component a of this transformation. On the right side of the morphism, the identity functor I gives us an a. On the left side, FW at a generates (Wa, δa), from which UW picks Wa. So ε :: Wa -> a. This corresponds to the comonad extract natural transformation.
+We want to calculate the component a of this transformation. On the right side of the morphism, the identity functor I gives us an a. On the left side, F^W at a generates (W a, δ_a), from which U^W picks W a. So ε :: W a -> a. This corresponds to the comonad extract natural transformation.
 
-To complete the definition of the adjunction between UW and FW, we also need to check the triangular identities. By analogy with the T-algebra from section 25.1, the first one is that εa * f = ida and the second one is that Wεa * δa = idWa (see diagram). Continuing the analogy, these hold because of the law of the W-coalgebra (a, f) and the counit law for the comonad W, respectively.
+To complete the definition of the adjunction between U^W and F^W, we also need to check the triangular identities. By analogy with the T-algebra from section 25.1, the first one is that ε_a * f = id_a and the second one is that W ε_a * δ_a = id_(W a) (see diagram). Continuing the analogy, these hold because of the law of the W-coalgebra (a, f) and the counit law for the comonad W, respectively.
 
-(It wasn't clear to me how these relate to the triangle identities described in section 18.1, so I'll give it a shot. For the first identity, we have εLd * Lηd = idLd. This translates to εa * UWη(a, f) :: (Wa -> a) * UW((a, f) -> (Wa, δa)) :: (Wa -> a) * (a -> Wa) :: a -> a = ida. For the second identity, we have Rεc * ηRc = idRc. This translates to FWεa * η(Wa, δa) :: FW(Wa -> a) * ((Wa, δa) -> (W(Wa), Wδa)) :: ((W(Wa), Wδa) -> (Wa, δa)) * ((Wa, δa) -> (W(Wa), Wδa)) :: (Wa, δa) -> (Wa, δa) = id(Wa, δa), with η(Wa, δa) :: (Wa, δa) -> (W(Wa), Wδa) because η at (Wa, f) is the coevaluator f :: a -> Wa (as shown above).)
+(It wasn't clear to me how these relate to the triangle identities described in section 18.1, so I'll give it a shot. For the first identity, we have ε_Ld * Lη_d = id_Ld. This translates to ε_a * U^Wη_(a, f) :: (W a -> a) * U^W((a, f) -> (W a, δ_a)) :: (W a -> a) * (a -> W a) :: a -> a = id_a. For the second identity, we have Rε_c * η_Rc = id_Rc. This translates to F^Wε_a * η_(W a, δ_a) :: F^W(W a -> a) * ((W a, δ_a) -> (W(W a), W δ_a)) :: ((W(W a), W δ_a) -> (W a, δ_a)) * ((W a, δ_a) -> (W(W a), W δ_a)) :: (W a, δ_a) -> (W a, δ_a) = id_(W a, δ_a), with η_(W a, δ_a) :: (W a, δ_a) -> (W(W a), W δ_a) because η at (W a, f) is the coevaluator f :: a -> W a (as shown above).)
 
-Now let's see that this adjunction gives rise to a comonad via the endofunctor UW * FW. The action of FW on an a gives (Wa, δa), from which UW picks Wa. In other words, UWa * FWa is Wa, which means that UW * FW is W (a comonad).
+Now let's see that this adjunction gives rise to a comonad via the endofunctor U^W * F^W. The action of F^W on an a gives (W a, δ_a), from which U^W picks W a. In other words, U^W a * F^W a is W a, which means that U^W * F^W is W (a comonad).
 
 Following the template of section 25.1, we have that the unit of the adjunction produces comonadic duplication through the following formula:
 
-δ = UW * η * FW
+δ = U^W * η * F^W
 
-We want to calculate the component of δ at a. The cofree functor FW takes a to the algebra (Wa, δa). That brings us to the factor in the middle, η, at (Wa, δa). As shown above, this is the coevaluator, in this case δa. Finally, "the action of UW on morphisms is trivial", so we end up with δa. This shows that the δ obtained from the adjunction is the same as the δ of the original comonad W.
+We want to calculate the component of δ at a. The cofree functor F^W takes a to the algebra (W a, δ_a). That brings us to the factor in the middle, η, at (W a, δ_a). As shown above, this is the coevaluator, in this case δ_a. Finally, "the action of U^W on morphisms is trivial", so we end up with δ_a. This shows that the δ obtained from the adjunction is the same as the δ of the original comonad W.

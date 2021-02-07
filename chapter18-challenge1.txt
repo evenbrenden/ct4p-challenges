@@ -7,13 +7,13 @@ f :: x -> y
 Ff :: C(Lx, c) -> C(Ly, c)
 Gf :: D(x, Rc) -> D(y, Rc)
 
-ψx :: C(Lx, c) -> D(x, Rc)
-ψy :: C(Ly, c) -> D(y, Rc)
+ψ_x :: C(Lx, c) -> D(x, Rc)
+ψ_y :: C(Ly, c) -> D(y, Rc)
 
-Gf * ψx :: D(x, Rc) -> D(y, Rc) * C(Lx, c) -> D(x, Rc)
-Gf * ψx :: C(Lx, c) -> D(y, Rc)
+Gf * ψ_x :: D(x, Rc) -> D(y, Rc) * C(Lx, c) -> D(x, Rc)
+Gf * ψ_x :: C(Lx, c) -> D(y, Rc)
 
-ψy * Ff :: C(Ly, c) -> D(y, Rc) * C(Lx, c) -> C(Ly, c)
-ψy * Ff :: C(Lx, c) -> D(y, Rc)
+ψ_y * Ff :: C(Ly, c) -> D(y, Rc) * C(Lx, c) -> C(Ly, c)
+ψ_y * Ff :: C(Lx, c) -> D(y, Rc)
 
-Gf * ψx = ψy * Ff
+Gf * ψ_x = ψ_y * Ff

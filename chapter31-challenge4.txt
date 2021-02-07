@@ -1,14 +1,14 @@
 (One last look at http://danshiebler.com/2018-11-10-category-solutions/, what would I have done without it?)
 
 
-Given a monad T over an object a, a monad algebra is an algebra over T with a morphism alg :: Ta -> a that satisfies the coherence conditions.
+Given a monad T over an object a, a monad algebra is an algebra over T with a morphism alg :: T a -> a that satisfies the coherence conditions.
 
 For a monad in Span, we have:
 
 * dom ∘ η = id
 * cod ∘ η = id
 
-Since η :: a -> Ta, dom or cod are both candidates for alg. Let's use cod.
+Since η :: a -> T a, dom or cod are both candidates for alg. Let's use cod.
 
 
 First coherence condition:
@@ -20,16 +20,16 @@ cod . η // Definition of η
 
 Second coherence condition:
 
-Given a pair of composable arrows (a1, a2), we want to show that:
+Given a pair of composable arrows (a_1, a_2), we want to show that:
 
-cod . μ_a (a1, a2) = cod . T cod (a1, a2)
+cod . μ_a (a_1, a_2) = cod . T cod (a_1, a_2)
 
-Left hand side: The composition of a1 and a2 is an arrow a3 = a1 ⊗ a2, where dom a3 = dom a1 and cod a3 = cod a2. If we switch ⊗ with . and reverse the arguments, this can be seen as regular composition where the input of a2 . a1 is the input of a1 and the output of a2 . a1 is the output of a2. Therefore, cod . μ_a (a1, a2) = cod a2.
+Left hand side: The composition of a_1 and a_2 is an arrow a_3 = a_1 ⊗ a_2, where dom a_3 = dom a_1 and cod a_3 = cod a_2. If we switch ⊗ with . and reverse the arguments, this can be seen as regular composition where the input of a_2 . a_1 is the input of a_1 and the output of a_2 . a_1 is the output of a_2. Therefore, cod . μ_a (a_1, a_2) = cod a_2.
 
-Right hand side: T cod :: T^2 -> T is a 2-cell that takes a pair of arrows. Since both arrows are 1-cells of the same type, the T functor applies cod to both of them. This results in a pair of objects (cod a1, cod a2). Since we are in the category T, (cod a1, cod a2) is lifted up to an arrow. This arrow must be the apex of cod a1 and cod a2. Since a1 and a2 are composable, cod a1 = dom a2, and the arrow must be the apex of dom a2 and cod a2. That's a2. In sum, T cod (a1, a2) = a2.
+Right hand side: T cod :: T^2 -> T is a 2-cell that takes a pair of arrows. Since both arrows are 1-cells of the same type, the T functor applies cod to both of them. This results in a pair of objects (cod a_1, cod a_2). Since we are in the category T, (cod a_1, cod a_2) is lifted up to an arrow. This arrow must be the apex of cod a_1 and cod a_2. Since a_1 and a_2 are composable, cod a_1 = dom a_2, and the arrow must be the apex of dom a_2 and cod a_2. That's a_2. In sum, T cod (a_1, a_2) = a_2.
 
 Putting it all together:
 
-cod . μ_a (a1, a2) =
-cod a2 =
-cod . T cod (a1, a2)
+cod . μ_a (a_1, a_2) =
+cod a_2 =
+cod . T cod (a_1, a_2)

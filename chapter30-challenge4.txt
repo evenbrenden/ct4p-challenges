@@ -1,12 +1,12 @@
 (Another blatant rip-off of http://danshiebler.com/2018-11-10-category-solutions/)
 
-Consider a functor K :: Set -> FinSet such that for any finite set n in Set, we have Kn = n (identity). This means that the hom-set FinSet(Kn, a) = a^(Kn) = a^n.
+Consider a functor K :: Set -> FinSet such that for any finite set n in Set, we have K n = n (identity). This means that the hom-set FinSet(K n, a) = a^(K n) = a^n.
 
 Next, consider a finitary functor F (a functor that "(...) is fully determined by its action on finite sets.") The left Kan extension of F along K is:
 
-LanKF a =
-∫^n FinSet(Kn, a) x Fn =        // Because the target of K is FinSet
-∫^n a^n x Fn =                  // As shown above
+Lan_KF a =
+∫^n FinSet(K n, a) x F n =      // Because the target of K is FinSet
+∫^n a^n x F n =                 // As shown above
 F                               // Action of F on an arbitrary set a
 
 This means that the finitary functor F is the left Kan extension of itself along K.

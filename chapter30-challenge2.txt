@@ -7,7 +7,7 @@ f [] = // [] is the monoidal unit
 id_a // Left hand side of the first coherence condition
 
 f . μ_a = // Left hand side of the second coherence condition
-f [a1, f [a2, a3]] = // a1, a2 and a3 being elements in a
-f [a1, a2, a3] = // List concatenation is associative
-f [f [a1, a2], a3] = // List concatenation is associative
+f [a_1, f [a_2, a_3]] = // a_1, a_2 and a_3 being elements in a
+f [a_1, a_2, a_3] = // List concatenation is associative
+f [f [a_1, a_2], a_3] = // List concatenation is associative
 f . T f // Right hand side of the second coherence condition

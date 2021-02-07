@@ -2,15 +2,15 @@ digraph {
   node [shape=plaintext]
 
   a [label="a"]
-  WaTR [label="Wa"]
-  WaBL [label="Wa"]
-  WWa [label="W(Wa)"]
+  WaTR [label="W a"]
+  WaBL [label="W a"]
+  WWa [label="W(W a)"]
 
   { rank=same WaBL a }
   { rank=same WWa WaTR }
 
   a -> WaTR [label="f"]
   a -> WaBL [label="f"]
-  WaTR -> WWa [label="Wf"]
-  WaBL -> WWa [label="δa"]
+  WaTR -> WWa [label="W f"]
+  WaBL -> WWa [label="δ_a"]
 }
