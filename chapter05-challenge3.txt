@@ -1,7 +1,7 @@
 The arrows are reversed and therefore the relations are reversed too, but the arguments are the same:
 
-For objects A and B and their product C in such a poset, there are morphisms p1 : A -> C and q1 : B -> C, so A <= C and B <= C. For any other (potentially existing) object D with D >= A and D >= B, there is a morphism C -> D.
+For objects A and B and their product C in such a poset, there are morphisms p1 :: A -> C and q1 :: B -> C, so A <= C and B <= C. For any other (potentially existing) object D with D >= A and D >= B, there is a morphism C -> D.
 
-Let an object D have morphisms p2 : A -> D and q2 : B -> D. Then there exists an m : C -> D and since there is at most one morphism between any pair of objects in a poset (unique relation), m factorizes p1 and q1 with m . p1 = p2 and m . q1 = q2. Therefore, C can be a coproduct of A and B.
+Let an object D have morphisms p2 :: A -> D and q2 :: B -> D. Then there exists an m :: C -> D and since there is at most one morphism between any pair of objects in a poset (unique relation), m factorizes p1 and q1 with m . p1 = p2 and m . q1 = q2. Therefore, C can be a coproduct of A and B.
 
-Now let's say that we have no morphism C -> D. Then there can be no n : D -> C (and morphisms p1 = p2 . n and q1 = q2 . n) since there is at most one morphism between two objects and we already stated that if D exists, then we have C -> D. Therefore, we need m : C -> D for C to be a coproduct of A and B.
+Now let's say that we have no morphism C -> D. Then there can be no n :: D -> C (and morphisms p1 = p2 . n and q1 = q2 . n) since there is at most one morphism between two objects and we already stated that if D exists, then we have C -> D. Therefore, we need m :: C -> D for C to be a coproduct of A and B.
