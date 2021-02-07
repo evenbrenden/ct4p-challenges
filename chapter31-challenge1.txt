@@ -1,26 +1,26 @@
 We have:
 
 f = a -> b = C(a, b) // Definition of a 1-cell
-ida = a -> a = C(a, a) // Identity endo-1-cell
+id_a = a -> a = C(a, a) // Identity endo-1-cell
 C(a, a) ⊗ C(a, a) = C(a, a) // Tensor product defined as composition of endo-1-cells in a bicategory
 
 And a relaxed set of monoidal laws in terms of:
 
-p = f ∘ ida -> f // Invertible 2-cell
-q = ida ∘ f -> f // Invertible 2-cell
+p = f ∘ id_a -> f // Invertible 2-cell
+q = id_a ∘ f -> f // Invertible 2-cell
 r = (C(a, a) ⊗ C(a, a)) ⊗ C(a, a) -> C(a, a) ⊗ (C(a, a) ⊗ C(a, a)) // Invertible 2-cell
 
 Left identity:
 
 C(a, a) ∘ C(a, b) =
-ida ∘ f =
+id_a ∘ f =
 f = // By isomorphism
 C(a, b)
 
 Right identity:
 
 C(a, b) ∘ C(b, b) =
-f ∘ idb =
+f ∘ id_b =
 f = // By isomorphism
 C(a, b)
 

@@ -2,11 +2,11 @@
 
 The category of models for the Lawvere theory of monoids is the same as the category of monoids. So we want to prove that the category of monad algebras for the list monad obeys monoid rules. Given a monoid over the set a, an algebra (a, f) and the list monad T, we can define f as monoidal list concatenation and check the monad algebra coherence conditions:
 
-f . ηa = // Right hand side of the first coherence condition
+f . η_a = // Right hand side of the first coherence condition
 f [] = // [] is the monoidal unit
-ida // Left hand side of the first coherence condition
+id_a // Left hand side of the first coherence condition
 
-f . μa = // Left hand side of the second coherence condition
+f . μ_a = // Left hand side of the second coherence condition
 f [a1, f [a2, a3]] = // a1, a2 and a3 being elements in a
 f [a1, a2, a3] = // List concatenation is associative
 f [f [a1, a2], a3] = // List concatenation is associative
