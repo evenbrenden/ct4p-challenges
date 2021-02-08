@@ -16,7 +16,7 @@ digraph {
   b -> Gb
   a -> FaFb
   b -> FaFb
-  FaFb -> FaFb [label="Ff = id_Fa"]
+  FaFb -> FaFb [label="Ff = id_(Fa)"]
   Ga -> Gb [label="Gf" color="red"]
   FaFb -> Ga [label="α_a" color="red"]
   FaFb -> Gb [label="α_b" color="yellow"]
