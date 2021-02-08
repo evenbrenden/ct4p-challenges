@@ -26,7 +26,7 @@ To complete the definition of the adjunction between U^W and F^W, we also need t
 
 Now let's see that this adjunction gives rise to a comonad via the endofunctor U^W * F^W. The action of F^W on an a is (W a, δ_a), from which U^W picks W a. In other words, U^W * F^W = W (a comonad).
 
-Following the template of section 25.1, we have that the unit of the adjunction produces comonadic duplication through the following formula:
+Following the template of section 25.1, the unit of the adjunction produces comonadic duplication through the following formula:
 
 δ = U^W * η * F^W
 
