@@ -11,7 +11,7 @@ newtype Opp r a = Opp (a -> r) -- Because Op is taken
 
 instance Contravariant (Opp r) where
     -- contramap :: (b -> a) -> Opp (a -> r) -> Opp (b -> r)
-    contramap f (Opp g) = Opp (g . f)
+  contramap f (Opp g) = Opp (g . f)
 
 unwrapOpp :: (Opp r a) -> a -> r
 unwrapOpp (Opp f) x = f x
@@ -86,6 +86,6 @@ result2 = leftSideApplied2 == rightSideApplied2 -- => True
 
 main :: IO ()
 main = do
-    print result1
-    print result2
-    return ()
+  print result1
+  print result2
+  return ()
