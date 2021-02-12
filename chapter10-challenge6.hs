@@ -10,7 +10,7 @@ import Data.Functor.Contravariant
 newtype Opp r a = Opp (a -> r) -- Because Op is taken
 
 instance Contravariant (Opp r) where
-    -- contramap :: (b -> a) -> Opp (a -> r) -> Opp (b -> r)
+  -- contramap :: (b -> a) -> Opp (a -> r) -> Opp (b -> r)
   contramap f (Opp g) = Opp (g . f)
 
 unwrapOpp :: (Opp r a) -> a -> r
