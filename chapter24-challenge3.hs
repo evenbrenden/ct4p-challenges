@@ -3,8 +3,6 @@
 #! nix-shell -p ghc
 #! nix-shell -i "ghcid -c 'ghci -Wall' -T main"
 
-type Algebra f a = f a -> a
-
 data Expr =
       RZero
     | ROne
