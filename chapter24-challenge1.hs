@@ -4,11 +4,13 @@
 #! nix-shell -i "ghcid -c 'ghci -Wall' -T main"
 
 type Poly = [Int]
+type Coeff = Int
+type Power = Int
 
 calc :: (Int, Int) -> Int -> Double
 calc (coefficient, power) x = (fromIntegral coefficient) * ((fromIntegral x) ** (fromIntegral power))
 
-indexed :: Poly -> [(Int, Int)]
+indexed :: Poly -> [(Coeff, Power)]
 indexed xs = zip xs [0..]
 
 calcs :: Poly -> Int -> [Double]
