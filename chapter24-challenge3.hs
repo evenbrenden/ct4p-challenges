@@ -4,8 +4,12 @@
 #! nix-shell -i "ghcid -c 'ghci -Wall' -T main"
 
 data Expr =
-      RZero
-    | ROne
+      ROneUpperLeft
+    | ROneUpperRight
+    | ROneLowerLeft
+    | ROneLowerRight
+    | RZero
+    | RIdentity
     | RAdd Expr Expr
     | RMul Expr Expr
     | RNeg Expr
@@ -25,14 +29,18 @@ neg :: Matrix2x2 -> Matrix2x2
 neg ((aa, ab), (ba, bb)) = ((-aa, -ab), (-ba, -bb))
 
 evalZ :: Expr -> Matrix2x2
-evalZ RZero = ((0, 0), (0, 0))
-evalZ ROne = ((1, 0), (0, 1))
+evalZ ROneUpperLeft = ((1, 0), (0, 0))
+evalZ ROneUpperRight = ((0, 1), (0, 0))
+evalZ ROneLowerLeft = ((0, 0), (1, 0))
+evalZ ROneLowerRight = ((0, 0), (0, 1))
+evalZ RZero = evalZ (RAdd RIdentity (RNeg RIdentity))
+evalZ RIdentity = evalZ (RAdd ROneUpperLeft ROneLowerRight)
 evalZ (RAdd m1 m2) = add (evalZ m1) (evalZ m2)
 evalZ (RMul m1 m2) = mul (evalZ m1) (evalZ m2)
 evalZ (RNeg m) = neg (evalZ m)
 
 main :: IO ()
 main = do
-  let expr = RMul (RAdd ROne ROne) (RNeg ROne)
+  let expr = RMul (RAdd RIdentity RIdentity) (RNeg RIdentity)
   putStrLn $ show $ evalZ expr
   return ()
