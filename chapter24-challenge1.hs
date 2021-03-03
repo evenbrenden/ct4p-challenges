@@ -3,7 +3,7 @@
 #! nix-shell -p ghc
 #! nix-shell -i "ghcid -c 'ghci -Wall' -T main"
 
-type Poly = [Int]
+type Poly = [Coeff]
 type Coeff = Int
 type Power = Int
 
