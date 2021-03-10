@@ -1,4 +1,4 @@
-We want to define the adjunction of U^W and F^W, where W is a comonad and (a, f) is a W-coalgebra consisting of a carrier a and a coevaluator f (coherence conditions assumed).
+We want to define the adjunction of U^W and F^W, where W is a comonad and (a, f) is a W-coalgebra consisting of a carrier a and a coevaluator f :: a -> W a (coherence conditions assumed).
 
 The left adjoint U^W is a forgetful functor that forgets coevaluation:
 
@@ -12,7 +12,7 @@ The unit is:
 
 η :: I -> F^W * U^W
 
-We want to calculate the component at (a, f) of this transformation. On the right side of the morphism, U^W takes the a out of (a, f), and F^W generates (W a, δ_a) from a. On the left side, the identity functor gives us (a, f). So η :: (a, f) -> (W a, δ_a). Since W f * f at a is W(W a) and δ * f at a is also W(W a) (see diagram), the component of η at (W a, f) is f, and f is a homomorphism of W-coalgebras.
+We want to calculate the component at (a, f) of this transformation. On the right side of the morphism, U^W takes the a out of (a, f), and F^W generates (W a, δ_a) from a. On the left side, the identity functor gives us (a, f). So η :: (a, f) -> (W a, δ_a), a homomorphism of W-coalgebras. Since W f * f at a is W(W a) and δ * f at a is also W(W a) (see diagram), f is a homomorphism of W-coalgebras, and we can use f as the component of η at (W a, f).
 
 The counit is:
 
