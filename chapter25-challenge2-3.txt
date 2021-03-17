@@ -28,6 +28,7 @@ Now let's see that this adjunction gives rise to a comonad via the endofunctor U
 
 Following the template of section 25.1, the unit of the adjunction produces comonadic duplication through the following formula:
 
+δ = L * η * R
 δ = U^W * η * F^W
 
-We want to calculate the component of δ at a. The cofree functor F^W takes a to the algebra (W a, δ_a). That brings us to the factor in the middle, η, at (W a, δ_a). As shown above, this is the coevaluator, in this case δ_a. Finally, "the action of U^W on morphisms is trivial", so we end up with δ_a. This shows that the δ obtained from the adjunction is the same as the δ of the original comonad W.
+We want to calculate the component of δ at a. The cofree functor F^W takes a to the algebra (W a, δ_a). That brings us to the factor in the middle, η, at (W a, δ_a). As shown above, this is the coevaluator, in this case δ_a. Finally, "the action of U^W on morphisms is trivial" ("[The forgetful functor] also maps a homomorphism of T-algebras to a corresponding morphism between carrier objects in C."), so we end up with δ_a. This shows that the δ obtained from the adjunction is the same as the δ of the original comonad W.
