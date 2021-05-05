@@ -1,8 +1,3 @@
-#! /usr/bin/env nix-shell
-#! nix-shell -p ghcid
-#! nix-shell -p ghc
-#! nix-shell -i "ghcid -c 'ghci -Wall' -T main"
-
 {-# LANGUAGE GADTs #-}
 
 import Data.Functor.Identity
