@@ -1,6 +1,11 @@
+#! /usr/bin/env nix-shell
+#! nix-shell -p ghcid
+#! nix-shell -p ghc
+#! nix-shell -i "ghcid -c 'ghci -Wall' -T main"
+
 {-# LANGUAGE RankNTypes #-}
 
-newtype Ran k d a = Ran (forall i. (a -> k i) -> d i)
+-- newtype Ran k d a = Ran (forall i. (a -> k i) -> d i)
 
 -- Replacing d with the forgetful functor = identity functor, we can find the free functor from the category of monoids.
 type Lst a = forall i. Monoid i => (a -> i) -> i
@@ -26,8 +31,8 @@ main = do
     -- d is the identity functor (could have used Identity)
     -- a is an integer
     -- i is an integer
-    let list = fromLst (toLst [1..5])
-        sum = toLst [1..5] $ Sum
+    let list = fromLst (toLst ([1..5]::[Int]))
+        sum' = toLst ([1..5]::[Int]) $ Sum
     putStrLn $ show list
-    putStrLn $ show sum
+    putStrLn $ show sum';
     return ()

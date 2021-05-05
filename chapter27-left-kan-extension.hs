@@ -1,3 +1,8 @@
+#! /usr/bin/env nix-shell
+#! nix-shell -p ghcid
+#! nix-shell -p ghc
+#! nix-shell -i "ghcid -c 'ghci -Wall' -T main"
+
 {-# LANGUAGE GADTs #-}
 
 import Data.Functor.Identity
@@ -14,7 +19,7 @@ fromExp (Lan f (Identity x)) = \a -> f (a, x)
 
 main :: IO ()
 main = do
-    let exp' = fromExp (toExp (==1))
+    let exp' = fromExp (toExp (==(1::Int)))
     putStrLn $ show $ exp' 1
     putStrLn $ show $ exp' 2
     return ()
