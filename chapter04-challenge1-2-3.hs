@@ -12,9 +12,6 @@ data Option a = Some a | Nada deriving Show
             bmc b
         Nada -> Nada
 
-return' :: a -> Option a
-return' = Some
-
 safe_reciprocal :: (Eq a, Fractional a) => a -> Option a
 safe_reciprocal x = if x == 0 then Nada else Some (1/x)
 
