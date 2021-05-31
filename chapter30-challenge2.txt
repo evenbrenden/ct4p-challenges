@@ -1,6 +1,6 @@
 (Taken from http://danshiebler.com/2018-11-10-category-solutions/)
 
-The category of models for the Lawvere theory of monoids is the same as the category of monoids. So we want to prove that the category of monad algebras for the list monad obeys monoid rules. Given a monoid over the set a, an algebra (a, f) and the list monad T, we can define f as monoidal list concatenation and check the monad algebra coherence conditions:
+The category of models for the Lawvere theory of monoids is the same as the category of monoids Mon. So we want to prove that the category of monad algebras for the list monad is equivalent to Mon. Given a monoid over the set a, an algebra (a, f) and the list monad T, we can define f as monoidal list concatenation and check the monad algebra coherence conditions:
 
 f . η_a = // Right hand side of the first coherence condition
 f [] = // [] is the monoidal unit
