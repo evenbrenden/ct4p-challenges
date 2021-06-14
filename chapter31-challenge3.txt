@@ -1,6 +1,6 @@
 (Just trying to wrap my head around the solution in http://danshiebler.com/2018-11-10-category-solutions/)
 
-In Prof, the bicategory in which profunctors are 1-cells, a monad is an endo-profunctor T :: Cop x C -> Set (the hom-functor). The type signature follows from the definition of a profunctor and the fact that this is an _endo_-profunctor.
+In Prof, the bicategory in which profunctors are 1-cells, a monad is an endo-profunctor T :: C_op x C -> Set (the hom-functor). The type signature follows from the definition of a profunctor and the fact that this is an _endo_-profunctor.
 
 The composition of any profunctors p and q is defined in terms of a coend:
 
@@ -12,4 +12,4 @@ Composing T with itself:
 ∫^c T c c' x T c' c = // Definition of profunctor composition
 T c' c' // c is existentially quantified
 
-This means that T maps any c's in C to itself. Which is another way of saying that T is an identity-on-objects functor.
+This means that T maps any c in C to itself. Which is another way of saying that T is an identity-on-objects functor.

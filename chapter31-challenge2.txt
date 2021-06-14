@@ -15,6 +15,6 @@ Since a_1 and a_i are composable, dom a_i = cod a_1. Therefore:
 
 cod μ (a_1, a_i) = cod a_1
 
-For associativity, just like regular function composition is associative, so is arrow composition. For any arrows a_1, a_2 and a_3, where cod a_1 = dom a_2 and cod a_2 = dom a_2:
+For associativity, just like regular function composition is associative, so is arrow composition. For any arrows a_1, a_2 and a_3, where cod a_1 = dom a_2 and cod a_2 = dom a_3:
 
 μ (a_1, μ (a_2, a_3)) = μ (μ (a_1, a_2), a_3)
