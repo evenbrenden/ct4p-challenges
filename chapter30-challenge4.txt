@@ -7,6 +7,6 @@ Next, consider a finitary functor F (a functor that "(...) is fully determined b
 Lan_KF a =
 ∫^n FinSet(K n, a) x F n =      // Because the target of K is FinSet
 ∫^n a^n x F n =                 // As shown above
-F                               // Action of F on an arbitrary set a
+F a                             // Action of F on an arbitrary set a
 
 This means that the finitary functor F is the left Kan extension of itself along K.
