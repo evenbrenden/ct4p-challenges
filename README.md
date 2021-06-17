@@ -1,1 +1,1 @@
-My solutions to the challenges from [Category Theory for Programmers by Bartosz Milewski](https://github.com/hmemcpy/milewski-ctfp-pdf/releases/tag/v19-eb86347). Not to be mistaken for the correct solutions.
+My solutions to the challenges from [Category Theory for Programmers by Bartosz Milewski](https://github.com/hmemcpy/milewski-ctfp-pdf) (v1.3.0, August 2019). Not to be mistaken for the correct solutions.
