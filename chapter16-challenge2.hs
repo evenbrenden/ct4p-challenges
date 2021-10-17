@@ -11,8 +11,8 @@ btoa = fromY id
 fromY :: (a -> x) -> b -> x
 fromY f b = f . btoa $ b
 
-btoa2FromY :: (b -> a) -> ((a -> x) -> (b -> x))
-btoa2FromY btoa' = \f -> f . btoa'
+btoaToFromY :: (b -> a) -> ((a -> x) -> (b -> x))
+btoaToFromY btoa' = \f -> f . btoa'
 
 fromYToBtoa :: forall a b. (forall x. (a -> x) -> (b -> x)) -> (b -> a)
 fromYToBtoa fromY' = fromY' id
