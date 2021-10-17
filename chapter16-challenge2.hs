@@ -14,7 +14,7 @@ fromY f b = f . btoa $ b
 btoaToFromY :: (b -> a) -> ((a -> x) -> (b -> x))
 btoaToFromY btoa' = \f -> f . btoa'
 
-fromYToBtoa :: forall a b. (forall x. (a -> x) -> (b -> x)) -> (b -> a)
+fromYToBtoa :: forall a b . (forall x . (a -> x) -> (b -> x)) -> (b -> a)
 fromYToBtoa fromY' = fromY' id
 
 -- We can go from btoa to fromY and back => these mappings are the inverse of each other

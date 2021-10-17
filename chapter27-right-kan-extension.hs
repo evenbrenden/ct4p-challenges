@@ -5,10 +5,10 @@
 
 {-# LANGUAGE RankNTypes #-}
 
--- newtype Ran k d a = Ran (forall i. (a -> k i) -> d i)
+-- newtype Ran k d a = Ran (forall i . (a -> k i) -> d i)
 
 -- Replacing d with the forgetful functor = identity functor, we can find the free functor from the category of monoids.
-type Lst a = forall i. Monoid i => (a -> i) -> i
+type Lst a = forall i . Monoid i => (a -> i) -> i
 
 toLst :: [a] -> Lst a
 toLst as = \f -> foldMap f as

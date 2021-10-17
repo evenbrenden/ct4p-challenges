@@ -7,7 +7,7 @@
 
 import Data.Functor.Identity
 
-data Lan k d a = forall i. Lan (k i -> a) (d i)
+data Lan k d a = forall i . Lan (k i -> a) (d i)
 
 type Exp a b = Lan ((,) a) Identity b
 
